@@ -1,0 +1,36 @@
+{
+  "name": "glitch-bot",
+  "version": "1.0.0",
+  "description": "discord bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mandar1jn/glitch-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mandar1jn/glitch-bot/issues"
+  },
+  "homepage": "https://github.com/mandar1jn/glitch-bot#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "ascii-table": "0.0.9",
+    "chateau": "^0.3.17",
+    "cheerio": "^1.0.0-rc.3",
+    "dblapi.js": "^2.4.0",
+    "discord.js": "^11.5.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "ms": "^2.1.2",
+    "node-fetch": "^2.6.0",
+    "node-gyp": "^6.1.0",
+    "random-puppy": "^1.1.0",
+    "request": "^2.88.2"
+  }
+}
