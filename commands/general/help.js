@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, message, args) => {
         var commandList = [];
 
-        if (!args[0]) return message.channel.send("Use .help <1|2|3|4|5>")
+        if (!args[0]) return message.channel.send("Use .help <1|2|3|4>")
 
         client.commands.forEach(command => {
 
@@ -31,11 +31,7 @@ module.exports = {
                 commandList.push(item);
             }
 
-            else if (item.category === "music" && args[0] === "4") {
-                commandList.push(item);
-            }
-
-            else if (item.category === "misc" && args[0] === "5") {
+            else if (item.category === "misc" && args[0] === "4") {
                 commandList.push(item);
             }
 
@@ -56,11 +52,7 @@ module.exports = {
             response.setTitle("admin")
         }
 
-         else if (args[0] === "4") {
-            response.setTitle("music")
-        }
-
-        else if (args[0] === "5") {
+        else if (args[0] === "4") {
             response.setTitle("misc")
         }
         else {

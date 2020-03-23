@@ -4,6 +4,7 @@ const http = require('http');
 const fs = require('fs');
 const developers = require("./databases/developers.json");
 const botconfig = require("./botconfig.json");
+const active = new Map();
 
 fs.readFile('./site/index.html', function(err, html) {
     if (err) {
@@ -30,6 +31,10 @@ config({
 ["command"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
+
+var options = {
+    active: active
+}
 
 client.on("ready", () => {
 
@@ -194,7 +199,7 @@ client.on("message", async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) {
-        command.run(client, message, args, Discord);
+        command.run(client, message, args, options);
     }
 });
 
