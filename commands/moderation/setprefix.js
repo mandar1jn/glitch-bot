@@ -19,7 +19,7 @@ module.exports = {
         if (err) console.log(err);
     });
 
-    message.channel.send(`I have changed the prefix to ${args[0]}`)
+    message.channel.send(`I have changed the prefix to \`\`${args[0]}\`\``)
 
     }
 }

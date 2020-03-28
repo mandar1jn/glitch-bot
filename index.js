@@ -37,7 +37,6 @@ var options = {
 }
 
 client.on("ready", () => {
-
     console.log(`Logged in as ${client.user.username}`);
     client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
 })
@@ -202,6 +201,16 @@ client.on("message", async message => {
         command.run(client, message, args, options);
     }
 });
+
+client.on("message", async message => {
+    if (message.isMemberMentioned(client.user)){
+        let guild_info = require(`./databases/guild info/${message.guild.id}.json`)
+        if(message.channel.type != "text") return;
+        else{
+            message.channel.send(`The prefix for the server is: \`\`${guild_info.prefix}\`\``)
+        }
+    }
+})
 
 client.on("error", async error => {
     console.log(error);

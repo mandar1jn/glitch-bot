@@ -6,7 +6,10 @@ module.exports = {
     description: "sends a random meme",
     category: "fun",
     run: async (client, message, args) => {
-        const subReddits = ["meme", "me_irl"];
+
+        if(!message.channel.nsfw) return message.channel.send("You have to use this command in an nsfw channel")
+
+        const subReddits = ["meme", "me_irl", "crappydesign", "technicallythetruth"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
         const img = await randomPuppy(random);
