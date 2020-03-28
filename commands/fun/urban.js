@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'urban',
     desciprtion: 'gives urban dictionary definiton of a word',
+    category: "fun",
     run(client, message, args) {
 
         if (!message.channel.nsfw) return message.channel.send("You have to use this command in an nsfw channel")

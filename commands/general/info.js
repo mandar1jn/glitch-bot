@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'info',
     description: 'user information',
+    category: "general",
     run(client, message, args) {
         const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
         const user = message.author;

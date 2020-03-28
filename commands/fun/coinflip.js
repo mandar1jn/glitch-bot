@@ -1,6 +1,7 @@
 module.exports = {
     name: 'coinflip',
     description: 'Flip a coin, tell if it is heads or tails',
+    category: "fun",
     run(client, message, args) {
         let random = (Math.floor(Math.random() * Math.floor(2)));
 
