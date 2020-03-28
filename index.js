@@ -5,6 +5,11 @@ const fs = require('fs');
 const developers = require("./databases/developers.json");
 const botconfig = require("./botconfig.json");
 const active = new Map();
+/*
+//Activate this when the bot is approved on top.gg and insert key
+const DBL = require("dblapi.js");
+const dbl = new DBL('Your top.gg token', client);
+*/
 
 fs.readFile('./site/index.html', function(err, html) {
     if (err) {
@@ -39,6 +44,11 @@ var options = {
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}`);
     client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
+    /*
+    //Activate this when the bot is approved on top.gg
+    setInterval(() => {
+        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+    }, 1800000); */
 })
 
 const defaultJSON = "{}"
@@ -215,5 +225,12 @@ client.on("message", async message => {
 client.on("error", async error => {
     console.log(error);
 });
+
+/*
+    //Activate this when the bot is approved on top.gg
+dbl.on('error', error => {
+ console.log(`Er ging iets mis met top.gg! ${error}`);
+})
+*/
 
 client.login(process.env.TOKEN);

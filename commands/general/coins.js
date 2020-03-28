@@ -4,7 +4,7 @@ module.exports = {
     name: "coins",
     description: "shows your coins",
     category: "general",
-    run: async (client, message, args) => {
+    run: async (client, message, args)=> {
         let munten = require(`../../databases/munten/munten-${message.guild.id}.json`);
         if (!munten[message.author.id]) {
             if (!munten[message.author.id]) {

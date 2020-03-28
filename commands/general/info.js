@@ -1,16 +1,26 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 module.exports = {
-    name: "info",
-    description: "shows info about your account",
-    category: "general",
-    run: async (client, message, args) => {
-        infoEmbed = new Discord.RichEmbed()
-            .setTitle(`Profile of: ${message.author.tag}`)
-            .addField("Tag", message.author.tag)
-            .addField("Username", message.author.username)
-            .addField("Status", message.author.presence.status)
-            .addField("Created at", message.author.createdAt)
-        message.channel.send(infoEmbed);
-    }
-}
+    name: 'info',
+    description: 'user information',
+    run(client, message, args) {
+        const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+        const user = message.author;
+
+        const roles = member.roles.map(role => role.toString());
+        const color = member.roles.find(role => role.name.charAt(0) === '#');
+        const embed = new Discord.RichEmbed()
+            .setTitle(`${user.username}`)
+            .setColor("RANDOM")
+            .setThumbnail(user.displayAvatarURL)
+            .addField('Username', user.username, true)
+            .addField('Nickname', member.username, true)
+            .addField('ID', user.id, true)
+            .addField('Account Created', user.createdAt.toDateString(), true)
+            .addField('Joined Server', member.joinedAt.toDateString(), true)
+            .addField('Roles', roles.join(' **|** '), true)
+            .setFooter('User Info', user.displayAvatarURL);
+
+        message.channel.send(embed);
+    },
+};
