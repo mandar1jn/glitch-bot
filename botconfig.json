@@ -1,5 +1,4 @@
 {
     "defaultprefix": ".",
-    "dev": false,
-    "allowmusic": false
+    "dev": false
 }

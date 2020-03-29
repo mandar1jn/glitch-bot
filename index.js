@@ -4,12 +4,11 @@ const http = require('http');
 const fs = require('fs');
 const developers = require("./databases/developers.json");
 const botconfig = require("./botconfig.json");
-const active = new Map();
-/*
-//Activate this when the bot is approved on top.gg and insert key
+const client = new Discord.Client({
+    disableEveryone: true
+})
 const DBL = require("dblapi.js");
-const dbl = new DBL('Your top.gg token', client);
-*/
+var dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODE4OTMwNjYyMzQyNjU5MSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTg1NTA0MDEyfQ.my1XbJGM4MKYh70i57ijKsRuSk5ik6TfYNJ9-tvV13k', client);
 
 fs.readFile('./site/index.html', function(err, html) {
     if (err) {
@@ -22,10 +21,6 @@ fs.readFile('./site/index.html', function(err, html) {
     }).listen(8000);
 });
 
-const client = new Discord.Client({
-    disableEveryone: true
-})
-
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
@@ -37,18 +32,14 @@ config({
     require(`./handlers/${handler}`)(client);
 });
 
-var options = {
-    active: active
-}
-
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}`);
     client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
-    /*
-    //Activate this when the bot is approved on top.gg
+    if(botconfig.dev != true){
     setInterval(() => {
         dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
-    }, 1800000); */
+    }, 1800000);
+    }
 })
 
 const defaultJSON = "{}"
@@ -154,7 +145,7 @@ client.on("message", async message => {
             munten[message.author.id].volgende_munt += 5;
         }
 
-        fs.writeFile(`./databases/munten/munten${message.guild.id}.json`, JSON.stringify(munten), (err) => {
+        fs.writeFile(`./databases/munten/munten-${message.guild.id}.json`, JSON.stringify(munten), (err) => {
             if (err) console.log(err)
         });
     }
@@ -208,15 +199,15 @@ client.on("message", async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) {
-        command.run(client, message, args, options);
+        command.run(client, message, args, dbl);
     }
 });
 
 client.on("message", async message => {
-    if (message.isMemberMentioned(client.user)){
+    if (message.isMemberMentioned(client.user)) {
         let guild_info = require(`./databases/guild info/${message.guild.id}.json`)
-        if(message.channel.type != "text") return;
-        else{
+        if (message.channel.type != "text") return;
+        else {
             message.channel.send(`The prefix for the server is: \`\`${guild_info.prefix}\`\``)
         }
     }
@@ -226,11 +217,11 @@ client.on("error", async error => {
     console.log(error);
 });
 
-/*
-    //Activate this when the bot is approved on top.gg
+
 dbl.on('error', error => {
+    if(botconfig.dev != true){
  console.log(`Er ging iets mis met top.gg! ${error}`);
+    }
 })
-*/
 
 client.login(process.env.TOKEN);
