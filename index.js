@@ -36,7 +36,7 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}`);
     client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
     setInterval(() => {
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
+        dbl.postStats(client.guilds.size);
     }, 1800000);
 })
 
@@ -201,25 +201,13 @@ client.on("message", async message => {
     }
 });
 
-client.on("message", async message => {
-    if (message.isMemberMentioned(client.user)) {
-        let guild_info = require(`./databases/guild info/${message.guild.id}.json`)
-        if (message.channel.type != "text") return;
-        else {
-            message.channel.send(`The prefix for the server is: \`\`${guild_info.prefix}\`\``)
-        }
-    }
-})
-
 client.on("error", async error => {
     console.log(error);
 });
 
 
 dbl.on('error', error => {
-    if (botconfig.dev != true) {
         console.log(`Er ging iets mis met top.gg! ${error}`);
-    }
 })
 
 client.login(process.env.TOKEN);
