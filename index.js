@@ -8,7 +8,7 @@ const client = new Discord.Client({
     disableEveryone: true
 })
 const DBL = require("dblapi.js");
-var dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ODE4OTMwNjYyMzQyNjU5MSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTg1NTA0MDEyfQ.my1XbJGM4MKYh70i57ijKsRuSk5ik6TfYNJ9-tvV13k', client);
+var dbl = new DBL(process.env.TOPAPI, client);
 
 fs.readFile('./site/index.html', function(err, html) {
     if (err) {
