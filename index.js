@@ -35,11 +35,9 @@ config({
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}`);
     client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
-    if(botconfig.dev != true){
     setInterval(() => {
         dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
     }, 1800000);
-    }
 })
 
 const defaultJSON = "{}"
@@ -219,8 +217,8 @@ client.on("error", async error => {
 
 
 dbl.on('error', error => {
-    if(botconfig.dev != true){
- console.log(`Er ging iets mis met top.gg! ${error}`);
+    if (botconfig.dev != true) {
+        console.log(`Er ging iets mis met top.gg! ${error}`);
     }
 })
 
