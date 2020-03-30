@@ -33,8 +33,8 @@ config({
 });
 
 client.on("ready", () => {
-    console.log(`Logged in as ${client.user.username}`);
-    client.user.setActivity(` ${client.guilds.size} servers`, { type: "WATCHING" });
+    console.log(`Logged in as ${client.user.username}. With ${client.users.size} users using ${client.channels.size} channels in ${client.guilds.size} servers`);
+    client.user.setActivity(` ${client.guilds.size} servers and ${client.users.size} users`, { type: "WATCHING" });
     setInterval(() => {
         dbl.postStats(client.guilds.size);
     }, 1800000);
