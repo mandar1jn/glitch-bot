@@ -1,2 +1,6 @@
 .env
-databases/
+xp/
+guild info/
+munten/
+blacklistedservers.json
+developers.json
