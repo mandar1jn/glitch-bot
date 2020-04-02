@@ -35,9 +35,12 @@ config({
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}. With ${client.users.size} users using ${client.channels.size} channels in ${client.guilds.size} servers`);
     client.user.setActivity(` ${client.guilds.size} servers and ${client.users.size} users using my features`, { type: "WATCHING" });
-    setInterval(() => {
-        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
-    }, 1800000);
+    if (botconfig.dev != true) {
+        dbl.postStats(client.guilds.size, client.shard.ids, client.shard.count);
+        setInterval(() => {
+            dbl.postStats(client.guilds.size, client.shard.ids, client.shard.count);
+        }, 1800000);
+    }
 })
 
 const defaultJSON = "{}"
@@ -211,7 +214,7 @@ client.on("error", async error => {
 
 
 dbl.on('error', error => {
-        console.log(`Er ging iets mis met top.gg! ${error}`);
+    console.log(`Er ging iets mis met top.gg! ${error}`);
 })
 
 client.login(process.env.TOKEN);
