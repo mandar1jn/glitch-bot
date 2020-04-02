@@ -36,7 +36,7 @@ client.on("ready", () => {
     console.log(`Logged in as ${client.user.username}. With ${client.users.size} users using ${client.channels.size} channels in ${client.guilds.size} servers`);
     client.user.setActivity(` ${client.guilds.size} servers and ${client.users.size} users using my features`, { type: "WATCHING" });
     setInterval(() => {
-        dbl.postStats(client.guilds.size);
+        dbl.postStats(client.guilds.size, client.shards.Id, client.shards.total);
     }, 1800000);
 })
 
