@@ -48,16 +48,7 @@ client.on("message", async message => {
 
     if (botconfig.dev != true) {
 
-        if (!blacklistedservers[message.guild.id]) {
-            blacklistedservers[message.guild.id] = false;
-            fs.writeFile(`./databases/blacklistedservers.json`, JSON.stringify(blacklistedservers), (err) => {
-                if (err) console.log(err)
-            });
-        }
 
-        if (blacklistedservers[message.guild.id] === true) {
-            return;
-        }
 
         if (fs.existsSync(`./databases/guild info/${message.guild.id}.json`)) {
 
@@ -81,8 +72,7 @@ client.on("message", async message => {
         }
 
         let guild_info = require(`./databases/guild info/${message.guild.id}.json`)
-        let xp = require(`./databases/xp/xp-${message.guild.id}.json`);
-        let munten = require(`./databases/munten/munten-${message.guild.id}.json`);
+
 
         if (!guild_info.prefix) {
             guild_info = {
@@ -93,6 +83,20 @@ client.on("message", async message => {
         fs.writeFile(`./databases/guild info/${message.guild.id}.json`, JSON.stringify(guild_info), (err) => {
             if (err) console.log(err)
         });
+
+        if (!blacklistedservers[message.guild.id]) {
+            blacklistedservers[message.guild.id] = false;
+            fs.writeFile(`./databases/blacklistedservers.json`, JSON.stringify(blacklistedservers), (err) => {
+                if (err) console.log(err)
+            });
+        }
+
+        if (blacklistedservers[message.guild.id] === true) {
+            return;
+        }
+
+        let xp = require(`./databases/xp/xp-${message.guild.id}.json`);
+        let munten = require(`./databases/munten/munten-${message.guild.id}.json`);
 
         const prefix = guild_info.prefix;
 
