@@ -15,7 +15,7 @@ module.exports = {
             }
         }
 
-        let muntenEmbed = new Discord.RichEmbed()
+        let muntenEmbed = new Discord.MessageEmbed()
             .setAuthor(message.author.username)
             .setColor("ffd000")
             .addField("Munten", munten[message.author.id].munten, true)

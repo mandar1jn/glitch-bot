@@ -5,7 +5,7 @@ module.exports = {
     description: "delete messages",
     category: "moderation",
     run: async (client, message, args) => {
-        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(new Discord.RichEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
+        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
 
         if (!args[0]) return message.channel.send("Please enter an integer")
 

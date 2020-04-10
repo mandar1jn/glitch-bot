@@ -5,7 +5,7 @@ module.exports = {
     description: "shows some facts",
     category: "fun",
     run: async (client, message, args) => {
-        infoEmbed = new Discord.RichEmbed()
+        infoEmbed = new Discord.MessageEmbed()
             .setTitle("5 facts")
             .setThumbnail(client.user.displayAvatarURL)
             .setColor("RANDOM")

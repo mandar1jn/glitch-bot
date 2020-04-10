@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 const randomPuppy = require("random-puppy");
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
 
         const img = await randomPuppy(random); 
         if(!img) return message.channel.send("Sorry, but the meme that was picked didn't have an image. Please try again")
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setImage(img)
             .setTitle(`From /r/${random}`)

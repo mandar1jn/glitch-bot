@@ -7,7 +7,7 @@ module.exports = {
     run: async (client, message, args) => {
         const msg = await message.channel.send(`🏓 Pinging....`);
 
-        const pingEmbed = new Discord.RichEmbed()
+        const pingEmbed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setTitle(`🏓 Pong!`)
             .addField("Latency", `${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms`)

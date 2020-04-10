@@ -5,9 +5,12 @@ module.exports = {
     description: "Sends this help message",
     category: "general",
     run: async (client, message, args) => {
+
+        const guild_info = require(`../../databases/guild info/${message.guild.id}.json`);
+
         var commandList = [];
 
-        if (!args[0]) return message.channel.send("Use .help <1|2|3|4>")
+        if (!args[0]) return message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
 
         client.commands.forEach(command => {
 
@@ -38,7 +41,7 @@ module.exports = {
         });
 
         var prefix = ".";
-        var response = new Discord.RichEmbed().setColor("ffd000")
+        var response = new Discord.MessageEmbed().setColor("ffd000")
 
         if (args[0] === "1") {
             response.setTitle("general")

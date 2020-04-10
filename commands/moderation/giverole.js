@@ -20,6 +20,6 @@ module.exports = {
                 })
             }
         }
-        else message.channel.send(new Discord.RichEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
+        else message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
     }
 }

@@ -5,12 +5,10 @@ module.exports = {
     description: 'user information',
     category: "general",
     run(client, message, args) {
-        const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+        const member = message.mentions.members.first() || message.member;
         const user = message.author;
 
-        const roles = member.roles.map(role => role.toString());
-        const color = member.roles.find(role => role.name.charAt(0) === '#');
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle(`${user.username}`)
             .setColor("RANDOM")
             .setThumbnail(user.displayAvatarURL)
@@ -19,7 +17,6 @@ module.exports = {
             .addField('ID', user.id, true)
             .addField('Account Created', user.createdAt.toDateString(), true)
             .addField('Joined Server', member.joinedAt.toDateString(), true)
-            .addField('Roles', roles.join(' **|** '), true)
             .setFooter('User Info', user.displayAvatarURL);
 
         message.channel.send(embed);

@@ -17,7 +17,7 @@ module.exports = {
         let nxtLvlXp = curlvl * 300 * 1.2;
         let difference = nxtLvlXp - curxp;
 
-        let lvlEmbed = new Discord.RichEmbed()
+        let lvlEmbed = new Discord.MessageEmbed()
             .setAuthor(message.author.username)
             .setColor("ffd000")
             .addField("Level", curlvl, true)

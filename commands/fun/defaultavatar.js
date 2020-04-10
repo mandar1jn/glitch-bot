@@ -6,7 +6,7 @@ module.exports = {
     category: "fun",
     run: async (client, message, args) => {
         if (!message.mentions.members.first()) {
-            const avatarEmbed = new Discord.RichEmbed()
+            const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Default avatar of: ' + message.author.tag)
                 .setColor("ffd000")
                 .setImage(message.author.defaultAvatarURL);
@@ -14,7 +14,7 @@ module.exports = {
         }
         else {
             mentionedUser = message.mentions.members.first().user;
-            const avatarEmbed = new Discord.RichEmbed()
+            const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Default avatar of: ' + mentionedUser.tag)
                 .setColor("ffd000")
                 .setImage(mentionedUser.defaultAvatarURL)
