@@ -13,8 +13,6 @@ const client = new Discord.Client({
 const DBL = require('dblapi.js');
 var dbl = new DBL(process.env.TOPAPI, client);
 
-const xp_and_coins_handler = require('./events/xp-and-coins.js');
-
 fs.readFile('./site/index.html', function(err, html) {
 	if (err) {
 		throw err;
