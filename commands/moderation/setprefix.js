@@ -1,5 +1,4 @@
 const fs = require("fs")
-const errors = require("../../utils/errors.js")
 
 module.exports = {
     name: "setprefix",
@@ -9,7 +8,7 @@ module.exports = {
 
         const guild_info = require(`../../databases/guild info/${message.guild.id}.json`);
 
-        if (!message.member.hasPermission("MANAGE_GUILD")) return errors.nopermission(client, message, args);
+        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("Sorry, but you don't have the permission to do that")
 
         if(!args[0]) return message.channel.send("Please also specifie a prefix");
 
