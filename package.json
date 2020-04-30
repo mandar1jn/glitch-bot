@@ -18,13 +18,17 @@
   "homepage": "https://github.com/mandar1jn/glitch-bot#readme",
   "devDependencies": {},
   "dependencies": {
-    "ascii-table": "0.0.9",
-    "cheerio": "^1.0.0-rc.3",
-    "dblapi.js": "^2.4.0",
-    "discord.js": "^12.1.1",
-    "dotenv": "^8.2.0",
-    "ms": "^2.1.2",
-    "random-puppy": "^1.1.0",
-    "request": "^2.88.2"
+    "ascii-table": "latest",
+    "cheerio": "latest",
+    "dblapi.js": "latest",
+    "discord.js": "^12.2.0",
+    "dotenv": "latest",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "mongodb": "^3.5.6",
+    "ms": "latest",
+    "random-puppy": "latest",
+    "request": "latest"
   }
 }

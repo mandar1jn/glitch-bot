@@ -40,7 +40,7 @@ module.exports = {
 
         });
 
-        var prefix = ".";
+        var prefix = guild_info.prefix;
         var response = new Discord.MessageEmbed().setColor("ffd000")
 
         if (args[0] === "1") {
@@ -59,7 +59,7 @@ module.exports = {
             response.setTitle("misc")
         }
         else {
-            return message.channel.send("Please use help <1|2|3|4>")
+            return message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
         }
 
         for (var i = 0; i < commandList.length; i++) {

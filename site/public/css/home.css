@@ -1,0 +1,10 @@
+img {
+	float: left;
+}
+iframe {
+	float: left;
+}
+
+hr {
+	border-top: 2px dotted #e32517;
+}

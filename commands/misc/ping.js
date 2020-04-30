@@ -11,7 +11,6 @@ module.exports = {
             .setColor("RANDOM")
             .setTitle(`🏓 Pong!`)
             .addField("Latency", `${Math.floor(msg.createdTimestamp - message.createdTimestamp)}ms`)
-            .addField(`API Latency`, `${Math.round(client.ping)}ms`)
 
         message.channel.send(pingEmbed);
 

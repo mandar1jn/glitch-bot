@@ -9,7 +9,7 @@ module.exports = {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Avatar of: ' + message.author.tag)
                 .setColor("ffd000")
-                .setImage(message.author.displayAvatarURL);
+                .setImage(message.author.displayAvatarURL({dynamic:true, format:"png"}));
             message.channel.send(avatarEmbed)
         }
         else {
@@ -17,7 +17,7 @@ module.exports = {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Avatar of: ' + mentionedUser.tag)
                 .setColor("ffd000")
-                .setImage(mentionedUser.displayAvatarURL)
+                .setImage(mentionedUser.displayAvatarURL({dynamic:true,format:"png"}))
                 .setFooter(`Requested by: ${message.author.tag}`);
             message.channel.send(avatarEmbed)
         }
