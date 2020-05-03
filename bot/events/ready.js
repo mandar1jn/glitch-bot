@@ -1,9 +1,6 @@
 const botconfig = require('../botconfig.json')
 var statusnumber = null;
 const server = require('../site/server.js')
-const client = require("../index.js")
-const DBL = require('dblapi.js');
-var dbl = new DBL(process.env.TOPAPI, client);
 
 module.exports = async (client, dbl) => {
     client.user.setActivity(
@@ -25,10 +22,4 @@ module.exports = async (client, dbl) => {
             console.log('invalid status number');
         }
     }, 60000);
-    if (botconfig.dev !== true) {
-        dbl.postStats(client.guilds.size, client.shard.ids, client.shard.count);
-        setInterval(() => {
-            dbl.postStats(client.guilds.size, client.shard.ids, client.shard.count);
-        }, 1800000);
-    }
 }

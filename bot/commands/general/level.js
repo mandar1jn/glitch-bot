@@ -22,7 +22,7 @@ module.exports = {
             .setColor("ffd000")
             .addField("Level", curlvl, true)
             .addField("XP", curxp, true)
-            .setFooter(`${difference} XP needed for yhe next level`, message.author.displayAvatarURL);
+            .setFooter(`${difference} XP needed for the next level`, message.author.displayAvatarURL);
 
         message.channel.send(lvlEmbed);
     }

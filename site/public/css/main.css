@@ -70,9 +70,12 @@ body{
 #footer {
   text-align: center;
   background-color: rgb(25, 25, 31);
-  background-blend-mode: color;
   filter: blur(5);
   color: white;
+  position: absolute;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 #topwid {
