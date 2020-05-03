@@ -11,6 +11,7 @@ const client = new Discord.Client({
 const DBL = require('dblapi.js');
 var dbl = new DBL(process.env.TOPAPI, client);
 const blacklistedservers = require('./databases/blacklistedservers.json');
+module.exports = client;
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();

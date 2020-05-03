@@ -7,7 +7,7 @@ defaultJSON = '{}';
 
 module.exports = async (client, message) => {
 
-	let guild_info = require(`../databases/guild info/${message.guild.id}.json`);
+	guild_info = require(`../databases/guild info/${message.guild.id}.json`);
 
 	if (!guild_info.prefix) {
 		guild_info = {
@@ -42,8 +42,8 @@ module.exports = async (client, message) => {
 		message.channel.send(`The prefix for this server is **${guild_info.prefix}**. Do **${guild_info.prefix}help** for info about all of my commands`);
 	}
 
-	let xp = require(`../databases/xp/xp-${message.guild.id}.json`);
-	let munten = require(`../databases/munten/munten-${message.guild.id}.json`);
+	xp = require(`../databases/xp/xp-${message.guild.id}.json`);
+	munten = require(`../databases/munten/munten-${message.guild.id}.json`);
 
 	const prefix = guild_info.prefix;
 
@@ -53,7 +53,7 @@ module.exports = async (client, message) => {
 
 	if (message.content.startsWith(prefix)) return;
 
-	let xpAdd = Math.floor(Math.random() * 7) + 8;
+	xpAdd = Math.floor(Math.random() * 7) + 8;
 
 	if (!xp[message.author.id]) {
 		xp[message.author.id] = {
@@ -62,13 +62,13 @@ module.exports = async (client, message) => {
 		};
 	}
 
-	let curxp = xp[message.author.id].xp;
-	let curlvl = xp[message.author.id].level;
-	let nxtLvl = xp[message.author.id].level * 300 * 1.2;
+	curxp = xp[message.author.id].xp;
+	curlvl = xp[message.author.id].level;
+	nxtLvl = xp[message.author.id].level * 300 * 1.2;
 	xp[message.author.id].xp = curxp + xpAdd;
 	if (nxtLvl <= xp[message.author.id].xp) {
 		xp[message.author.id].level = curlvl + 1;
-		let lvlup = new Discord.MessageEmbed()
+		lvlup = new Discord.MessageEmbed()
 			.setTitle('Level Up!')
 			.setColor('ffd000')
 			.addField('New Level', curlvl + 1);

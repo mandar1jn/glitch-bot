@@ -5,7 +5,8 @@ body{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size: 16px;
 	line-height: 1.6em;
-	margin: 0; 
+	margin: 0;
+  padding: 0; 
 }
 
 
@@ -16,9 +17,67 @@ body{
 }
 
 #main-header {
+  color: white;
 	text-align: center;
 	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	background-color: #db2a2a;
+	padding-top: 1px;
+	height: 4em;
+	padding-bottom: 1px;
+  margin: 0;
+	background-color: #940606;
 }
+
+.invite-image {
+
+  object-position: 50%;
+  object-fit: none;
+  display: block;
+  width: 100%;
+  color: white;
+  padding-bottom: 260px;
+  
+
+}
+
+#invite-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#background-invite-image {
+  margin: 0;
+  padding-top: 10px;
+  background-image: linear-gradient(#940606, #f5f5f5); 
+}
+
+
+#navbar {
+  text-align: center;
+  list-style: none;
+}
+
+#navbar li {
+  display: inline;
+  margin-right: 15px;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: #333;
+}
+
+#footer {
+  text-align: center;
+  background-color: rgb(25, 25, 31);
+  background-blend-mode: color;
+  filter: blur(5);
+  color: white;
+}
+
+#topwid {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+

@@ -1,6 +1,9 @@
 const botconfig = require('../botconfig.json')
 var statusnumber = null;
 const server = require('../site/server.js')
+const client = require("../index.js")
+const DBL = require('dblapi.js');
+var dbl = new DBL(process.env.TOPAPI, client);
 
 module.exports = async (client, dbl) => {
     client.user.setActivity(

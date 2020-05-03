@@ -1,0 +1,74 @@
+body {
+  text-align: center;
+}
+
+div.itemmandar1jn {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    float: left;
+    margin-left: 3em;
+    margin-right: 10em;
+}
+
+div.itemquikdropz {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 120px;
+    align-content: center;
+}
+
+
+div.itemTiger {
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+  float: right;
+  margin-right: 20%;
+  margin-left: 10em;
+}
+
+.caption {
+    display: block;
+}
+
+.developers img {
+  border: 1px transparent solid;
+  border-radius: 25%;
+  float: left;
+  width: 256px;
+  height: 256px;
+}
+
+.developers a {
+  position: relative;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+}
+
+.developers span {
+  position: relative;
+  left: 50px;
+}
+
+
+.developers a:hover {
+  text-decoration: none;
+  font-size: 25px;
+  color: coral;
+
+}
+
+
+@media(max-width:600px) {
+  div.item  {
+    left: 50%;
+    margin-right: 40%;
+  }
+
+}
+
