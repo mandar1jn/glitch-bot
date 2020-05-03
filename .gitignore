@@ -4,3 +4,5 @@ guild info/
 munten/
 blacklistedservers.json
 developers.json
+package-lock.json
+node_modules/

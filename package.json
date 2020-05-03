@@ -23,7 +23,7 @@
     "dblapi.js": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
-    "express": "^4.17.1",
+    "express": "latest",
     "express-handlebars": "latest",
     "express-session": "latest",
     "ms": "latest",
