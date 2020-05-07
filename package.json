@@ -20,13 +20,16 @@
   "dependencies": {
     "ascii-table": "latest",
     "cheerio": "latest",
+    "dashboard": "0.0.1",
     "dblapi.js": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
     "express": "latest",
     "express-handlebars": "latest",
     "express-session": "latest",
+    "form-data": "^3.0.0",
     "ms": "latest",
+    "node-fetch": "^2.6.0",
     "random-puppy": "latest",
     "request": "latest"
   }
