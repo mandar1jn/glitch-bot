@@ -1,4 +1,3 @@
-const botconfig = require('../botconfig.json');
 const fs = require('fs');
 const blacklistedservers = require('../databases/blacklistedservers.json');
 const Discord = require('discord.js');
@@ -7,7 +6,7 @@ defaultJSON = '{}';
 
 module.exports = async (client, message) => {
 
-    if (fs.existsSync(`./databases/guild info/${message.guild.id}.json`)) {
+    if (fs.existsSync(`../databases/guild info/${message.guild.id}.json`)) {
     } else {
         fs.writeFileSync(
             `./databases/guild info/${message.guild.id}.json`,
@@ -15,18 +14,18 @@ module.exports = async (client, message) => {
         );
     }
 
-    if (fs.existsSync(`./databases/xp/xp-${message.guild.id}.json`)) {
+    if (fs.existsSync(`./src/bot/databases/xp/xp-${message.guild.id}.json`)) {
     } else {
         fs.writeFileSync(
-            `./databases/xp/xp-${message.guild.id}.json`,
+            `./src/bot/databases/xp/xp-${message.guild.id}.json`,
             defaultJSON
         );
     }
 
-    if (fs.existsSync(`./databases/munten/munten-${message.guild.id}.json`)) {
+    if (fs.existsSync(`./src/bot/databases/munten/munten-${message.guild.id}.json`)) {
     } else {
         fs.writeFileSync(
-            `./databases/munten/munten-${message.guild.id}.json`,
+            `./src/bot/databases/munten/munten-${message.guild.id}.json`,
             defaultJSON
         );
     }
@@ -40,7 +39,7 @@ module.exports = async (client, message) => {
     }
 
     fs.writeFile(
-        `./databases/guild info/${message.guild.id}.json`,
+        `./src/bot/databases/guild info/${message.guild.id}.json`,
         JSON.stringify(guild_info),
         err => {
             if (err) console.log(err);
@@ -50,7 +49,7 @@ module.exports = async (client, message) => {
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
-            `./databases/blacklistedservers.json`,
+            `./src/bot/databases/blacklistedservers.json`,
             JSON.stringify(blacklistedservers),
             err => {
                 if (err) console.log(err);
@@ -100,7 +99,7 @@ module.exports = async (client, message) => {
         message.channel.send(lvlup);
     }
     fs.writeFile(
-        `./databases/xp/xp-${message.guild.id}.json`,
+        `./src/bot/databases/xp/xp-${message.guild.id}.json`,
         JSON.stringify(xp),
         err => {
             if (err) console.log(err);
@@ -122,7 +121,7 @@ module.exports = async (client, message) => {
     }
 
     fs.writeFile(
-        `./databases/munten/munten-${message.guild.id}.json`,
+        `./src/bot/databases/munten/munten-${message.guild.id}.json`,
         JSON.stringify(munten),
         err => {
             if (err) console.log(err);

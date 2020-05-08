@@ -6,6 +6,7 @@ const exphbs = require('express-handlebars');
 const router = express.Router();
 const session = require('express-session');
 const FormData = require('form-data');
+const { body,validationResult,sanitizeBody } = require("express-validator");
 
 const data = new FormData();
 
@@ -48,8 +49,8 @@ router.get('/dashboard/login/', (req, res) => {
 })
 
 router.get('/dashboard/callback', (req, res) => {
-  data.append('client_id', '705484773505761280');
-  data.append('client_secret', '74kOyMAxo3hg7SF99mHwdcx1lGAn99UT');
+  data.append('client_id', process.env.CLIENT_ID);
+  data.append('client_secret', process.env.CLIENT_SECRET);
   data.append('grant_type', 'authorization_code');
   data.append('scope', 'identify guilds');
   data.append('redirect_uri', 'https://oauthtest--007whitetiger.repl.co/callback/')
@@ -60,7 +61,8 @@ router.get('/dashboard/callback', (req, res) => {
       body: data,
   }).then(res => res.json()).then(data => {
     req.session.loggedin = true
-    req.session.token = data['access_token']
+    auth = data
+    req.session.token = auth['access_token']
     
     res.redirect('/dashboard')
   })
@@ -69,10 +71,12 @@ router.get('/dashboard/callback', (req, res) => {
 router.get('/dashboard/', (req, res) => {
   if(req.session.loggedin) {
     console.log(req.session.token)
+    let data = new FormData()
+    data.append('Authorization', `Bearer ${req.session.token}`)
     
     fetch('https://discordapp.com/api/users/@me', {
         method: 'GET',
-        headers: { Authorization: `Bearer ${req.session.token}` },
+        body: data,
     })
     
     
@@ -83,8 +87,9 @@ router.get('/dashboard/', (req, res) => {
   }
 })
 
+router.post
 
+app.use('/', router)
 
-app.use('/', router);
+module.export = app;
 
-module.exports = app;

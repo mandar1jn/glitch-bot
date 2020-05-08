@@ -1,9 +1,6 @@
 const Discord = require('discord.js');
-const { config } = require('dotenv');
-const http = require('http');
 const fs = require('fs');
 const developers = require('./databases/developers.json');
-const botconfig = require('./botconfig.json');
 const client = new Discord.Client({
 	shards: 'auto',
 	disableMentions: 'everyone'
@@ -16,15 +13,11 @@ module.exports = client;
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
-config({
-	path: __dirname + '/.env'
-});
-
 ['command'].forEach(handler => {
 	require(`./handlers/${handler}`)(client);
 });
 
-fs.readdir('./events/', (err, files) => {
+fs.readdir('./src/bot/events/', (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
@@ -35,7 +28,7 @@ fs.readdir('./events/', (err, files) => {
 	});
 });
 
-fs.readdir('./dblevents/', (err, files) => {
+fs.readdir('./src/bot/dblevents/', (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
@@ -51,7 +44,7 @@ client.on('message', async message => {
 	if (!blacklistedservers[message.guild.id]) {
 		blacklistedservers[message.guild.id] = false;
 		fs.writeFile(
-			`./databases/blacklistedservers.json`,
+			`./src/bot/databases/blacklistedservers.json`,
 			JSON.stringify(blacklistedservers),
 			err => {
 				if (err) console.log(err);
@@ -59,23 +52,23 @@ client.on('message', async message => {
 		);
 	}
 
-	let guild_info = require(`./databases/guild info/${message.guild.id}.json`);
+	let guild_info = require(`./src/bot/databases/guild info/${message.guild.id}.json`);
 
 	if (!guild_info.prefix) {
 		guild_info = {
-			prefix: botconfig.defaultprefix
+			prefix: process.env.PREFIX
 		};
 	}
 
 	fs.writeFile(
-		`./databases/guild info/${message.guild.id}.json`,
+		`./src/bot/databases/guild info/${message.guild.id}.json`,
 		JSON.stringify(guild_info),
 		err => {
 			if (err) console.log(err);
 		}
 	);
 
-	const prefix = guild_info.prefix;
+	const prefix = process.env.PREFIX;
 
 	if (message.author.bot) return;
 	if (!message.guild) return;

@@ -8,7 +8,9 @@
 </head>
 <body>
 
-  <form class="dashboard" method="/dashboard/update">
-
-  </form>
+  <form action="/dashboard/update" method="post">
+    <label for="team_name">Enter prefix: </label>
+    <input id="team_name" type="text" name="name_field" value="{{ b }}">
+    <input type="submit" value="OK">
+</form>
 </body>
