@@ -1,11 +1,12 @@
 const Discord = require("discord.js");
+const path = require("path")
 
 module.exports = {
     name: "level",
     description: "shows your level",
     category: "general",
     run: async (client, message, args) => {
-        let xp = require(`../../databases/xp/xp-${message.guild.id}.json`);
+        let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
         if (!xp[message.author.id]) {
             xp[message.author.id] = {
                 xp: 0,
@@ -22,7 +23,7 @@ module.exports = {
             .setColor("ffd000")
             .addField("Level", curlvl, true)
             .addField("XP", curxp, true)
-            .setFooter(`${difference} XP needed for yhe next level`, message.author.displayAvatarURL);
+            .setFooter(`${difference} XP needed for the next level`, message.author.displayAvatarURL);
 
         message.channel.send(lvlEmbed);
     }

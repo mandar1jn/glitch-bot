@@ -1,13 +1,14 @@
+const path = require("path")
 const Discord = require('discord.js');
 const fs = require('fs');
-const developers = require('./databases/developers.json');
+const developers = require(path.join(__dirname + `/databases/developers.json`));
 const client = new Discord.Client({
 	shards: 'auto',
 	disableMentions: 'everyone'
 });
 const DBL = require('dblapi.js');
 var dbl = new DBL(process.env.TOPAPI, client);
-const blacklistedservers = require('./databases/blacklistedservers.json');
+const blacklistedservers = require(path.join(__dirname + `/databases/blacklistedservers.json`));
 module.exports = client;
 
 client.commands = new Discord.Collection();
@@ -40,19 +41,46 @@ fs.readdir('./src/bot/dblevents/', (err, files) => {
 });
 
 client.on('message', async message => {
-	
+
 	if (!blacklistedservers[message.guild.id]) {
 		blacklistedservers[message.guild.id] = false;
 		fs.writeFile(
-			`./src/bot/databases/blacklistedservers.json`,
+			path.join(__dirname + `/databases/blacklistedservers.json`),
 			JSON.stringify(blacklistedservers),
 			err => {
 				if (err) console.log(err);
 			}
 		);
 	}
+	
+	if (fs.existsSync(path.join(__dirname + `/databases/guild info/${message.guild.id}.json`))) {
+    } 
+    else {
+        fs.writeFileSync(
+            path.join(__dirname + `/databases/guild info/${message.guild.id}.json`),
+            "{}"
+        );
+    }
 
-	let guild_info = require(`./src/bot/databases/guild info/${message.guild.id}.json`);
+    if (fs.existsSync(path.join(__dirname + `/databases/xp/xp-${message.guild.id}.json`))) {
+    } 
+    else {
+        fs.writeFileSync(
+            path.join(__dirname + `/databases/xp/xp-${message.guild.id}.json`),
+            "{}"
+        );
+    }
+
+    if (fs.existsSync(path.join(__dirname + `/databases/munten/munten-${message.guild.id}.json`))) {
+    } 
+    else {
+        fs.writeFileSync(
+            path.join(__dirname + `/databases/munten/munten-${message.guild.id}.json`),
+            "{}"
+        );
+    }
+
+	guild_info = require(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`));
 
 	if (!guild_info.prefix) {
 		guild_info = {
@@ -61,14 +89,14 @@ client.on('message', async message => {
 	}
 
 	fs.writeFile(
-		`./src/bot/databases/guild info/${message.guild.id}.json`,
+		path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
 		JSON.stringify(guild_info),
 		err => {
 			if (err) console.log(err);
 		}
 	);
 
-	const prefix = process.env.PREFIX;
+	prefix = guild_info.prefix;
 
 	if (message.author.bot) return;
 	if (!message.guild) return;

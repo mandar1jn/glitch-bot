@@ -10,6 +10,16 @@ const { body,validationResult,sanitizeBody } = require("express-validator");
 
 const data = new FormData();
 
+async function getUser(token) {
+    let response = await fetch("https://discordapp.com/api/users/@me", {
+      method: 'GET',
+      headers: { 'Authorization': `Bearer ${token}` }
+    })
+    let data = await response.json()
+    setTimeout(3000);
+
+}
+
 
 app.use(express.static(__dirname + '/public'));
 
@@ -45,7 +55,7 @@ router.get('/stats/', (req, res) => {
 
 
 router.get('/dashboard/login/', (req, res) => {
-  res.redirect('https://discord.com/api/oauth2/authorize?client_id=705484773505761280&redirect_uri=https%3A%2F%2Fglitch-bot-development--marijnkneppers.repl.co%2Fdashboard%2Fcallback&response_type=code&scope=identify%20guilds')
+  res.redirect(process.env.OAUTH_URL)
 })
 
 router.get('/dashboard/callback', (req, res) => {
@@ -53,7 +63,7 @@ router.get('/dashboard/callback', (req, res) => {
   data.append('client_secret', process.env.CLIENT_SECRET);
   data.append('grant_type', 'authorization_code');
   data.append('scope', 'identify guilds');
-  data.append('redirect_uri', 'https://oauthtest--007whitetiger.repl.co/callback/')
+  data.append('redirect_uri', process.env.REDIRECT_URL)
   data.append('code', req.query.code);
 
   fetch('https://discordapp.com/api/oauth2/token', {
@@ -71,13 +81,11 @@ router.get('/dashboard/callback', (req, res) => {
 router.get('/dashboard/', (req, res) => {
   if(req.session.loggedin) {
     console.log(req.session.token)
-    let data = new FormData()
-    data.append('Authorization', `Bearer ${req.session.token}`)
     
-    fetch('https://discordapp.com/api/users/@me', {
-        method: 'GET',
-        body: data,
-    })
+    response = getUser(req.session.token)
+    console.log(response)
+    res.sendFile(path.join(__dirname+'/dashboard.html'))
+  
     
     
   } else {
@@ -91,5 +99,4 @@ router.post
 
 app.use('/', router)
 
-module.export = app;
-
+module.exports = app;

@@ -16,21 +16,19 @@
     "url": "https://github.com/mandar1jn/glitch-bot/issues"
   },
   "homepage": "https://github.com/mandar1jn/glitch-bot#readme",
-  "devDependencies": {},
   "dependencies": {
     "ascii-table": "latest",
     "cheerio": "latest",
-    "dashboard": "0.0.1",
     "dblapi.js": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
     "express": "latest",
     "express-handlebars": "latest",
     "express-session": "latest",
-    "express-validator": "^6.4.1",
-    "form-data": "^3.0.0",
+    "express-validator": "latest",
+    "form-data": "latest",
     "ms": "latest",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "latest",
     "random-puppy": "latest",
     "request": "latest"
   }

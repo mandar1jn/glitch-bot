@@ -1,4 +1,5 @@
 const fs = require("fs")
+const path = require("path")
 
 module.exports = {
     name: "setprefix",
@@ -6,7 +7,7 @@ module.exports = {
     category: "moderation",
     run: async (client, message, args) => {
 
-        const guild_info = require(`../../databases/guild info/${message.guild.id}.json`);
+        const guild_info = require(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`));
 
         if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send("Sorry, but you don't have the permission to do that")
 
@@ -14,7 +15,7 @@ module.exports = {
 
         guild_info.prefix = args[0];
 
-       fs.writeFile(`./databases/guild info/${message.guild.id}.json`, JSON.stringify(guild_info), (err) => {
+       fs.writeFile(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`), JSON.stringify(guild_info), (err) => {
         if (err) console.log(err);
     });
 
