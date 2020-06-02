@@ -1,4 +1,5 @@
 const { readdirSync } = require("fs");
+const path = require("path");
 
 const ascii = require("ascii-table");
 
@@ -6,11 +7,11 @@ let table = new ascii("Commands");
 table.setHeading("Command", "Load status", "Category");
 
 module.exports = (client) => {
-    readdirSync("./src/bot/commands/").forEach(dir => {
-        const commands = readdirSync(`./src/bot/commands/${dir}/`).filter(file => file.endsWith(".js"));
+    readdirSync(path.resolve("src/bot/commands/")).forEach(dir => {
+        const commands = readdirSync(path.resolve(`src/bot/commands/${dir}/`)).filter(file => file.endsWith(".js"));
 
         for (let file of commands) {
-            let pull = require(`../commands/${dir}/${file}`);
+            let pull = require(path.resolve(`src/bot/commands/${dir}/${file}`));
 
             if (pull.name) {
                 client.commands.set(pull.name, pull);

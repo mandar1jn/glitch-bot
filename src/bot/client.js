@@ -1,42 +1,42 @@
 const path = require("path")
 const Discord = require('discord.js');
 const fs = require('fs');
-const developers = require(path.join(__dirname + `/databases/developers.json`));
+const developers = require(path.resolve(`src/bot/databases/developers.json`));
 const client = new Discord.Client({
 	shards: 'auto',
 	disableMentions: 'everyone'
 });
 const DBL = require('dblapi.js');
 var dbl = new DBL(process.env.TOPAPI, client);
-const blacklistedservers = require(path.join(__dirname + `/databases/blacklistedservers.json`));
+const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedservers.json`));
 module.exports = client;
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
 ['command'].forEach(handler => {
-	require(`./handlers/${handler}`)(client);
+	require(path.resolve(`src/bot/handlers/${handler}`))(client);
 });
 
-fs.readdir('./src/bot/events/', (err, files) => {
+fs.readdir(path.resolve('src/bot/events/'), (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
-		const event = require(`./events/${file}`);
+		const event = require(path.resolve(`src/bot/events/${file}`));
 		let eventName = file.split('.')[0];
 		client.on(eventName, event.bind(null, client));
-		delete require.cache[require.resolve(`./events/${file}`)];
+		delete require.cache[require.resolve(path.resolve(`src/bot/events/${file}`))];
 	});
 });
 
-fs.readdir('./src/bot/dblevents/', (err, files) => {
+fs.readdir(path.resolve('src/bot/dblevents/'), (err, files) => {
 	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
-		const dblEvent = require(`./dblevents/${file}`);
+		const dblEvent = require(path.resolve(`src/bot/dblevents/${file}`));
 		let dblEventName = file.split('.')[0];
 		client.on(dblEventName, dblEvent.bind(null, dbl));
-		delete require.cache[require.resolve(`./dblevents/${file}`)];
+		delete require.cache[require.resolve(path.resolve(`src/bot/dblevents/${file}`))];
 	});
 });
 
@@ -45,7 +45,7 @@ client.on('message', async message => {
 	if (!blacklistedservers[message.guild.id]) {
 		blacklistedservers[message.guild.id] = false;
 		fs.writeFile(
-			path.join(__dirname + `/databases/blacklistedservers.json`),
+			path.resolve(`src/bot/databases/blacklistedservers.json`),
 			JSON.stringify(blacklistedservers),
 			err => {
 				if (err) console.log(err);
@@ -53,29 +53,29 @@ client.on('message', async message => {
 		);
 	}
 	
-	if (fs.existsSync(path.join(__dirname + `/databases/guild info/${message.guild.id}.json`))) {
+	if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`))) {
     } 
     else {
         fs.writeFileSync(
-            path.join(__dirname + `/databases/guild info/${message.guild.id}.json`),
+            path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
             "{}"
         );
     }
 
-    if (fs.existsSync(path.join(__dirname + `/databases/xp/xp-${message.guild.id}.json`))) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`))) {
     } 
     else {
         fs.writeFileSync(
-            path.join(__dirname + `/databases/xp/xp-${message.guild.id}.json`),
+            path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
             "{}"
         );
     }
 
-    if (fs.existsSync(path.join(__dirname + `/databases/munten/munten-${message.guild.id}.json`))) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`))) {
     } 
     else {
         fs.writeFileSync(
-            path.join(__dirname + `/databases/munten/munten-${message.guild.id}.json`),
+            path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`),
             "{}"
         );
     }
@@ -100,7 +100,7 @@ client.on('message', async message => {
 
 	if (message.author.bot) return;
 	if (!message.guild) return;
-	if (!message.content.startsWith(prefix)) return;
+	if (!message.content.toLocaleLowerCase().startsWith(prefix.toLowerCase())) return;
 	if (!message.member)
 		message.member = await message.guild.fetchMember(message);
 

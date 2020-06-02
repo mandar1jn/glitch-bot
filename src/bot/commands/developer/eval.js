@@ -1,4 +1,5 @@
-const developers = require('../../databases/developers.json');
+const path = require("path")
+const developers = require(path.resolve('src/bot/databases/developers.json'));
 const fs = require('fs');
 
 module.exports = {

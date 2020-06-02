@@ -1,5 +1,6 @@
-const developers = require("../../databases/developers.json");
-const blacklistedservers = require("../../databases/blacklistedservers.json");
+const path = require("path");
+const developers = require(path.resolve("src/bot/databases/developers.json"));
+const blacklistedservers = require(path.resolve("src/bot/databases/blacklistedservers.json"));
 const fs = require("fs");
 
 module.exports = {
@@ -15,7 +16,7 @@ module.exports = {
 
         blacklistedservers[args[0]] = false;
 
-        fs.writeFile(`./databases/blacklistedservers.json`, JSON.stringify(blacklistedservers), (err) => {
+        fs.writeFile(path.resolve(`src/bot/databases/blacklistedservers.json`), JSON.stringify(blacklistedservers), (err) => {
         if (err) console.log(err);
     });
     message.channel.send("I have unblacklisted the server")
