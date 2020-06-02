@@ -25,7 +25,7 @@
     "express": "latest",
     "express-handlebars": "latest",
     "express-session": "latest",
-    "express-validator": "latest",
+    "express-validator": "^6.5.0",
     "form-data": "latest",
     "ms": "latest",
     "node-fetch": "latest",
