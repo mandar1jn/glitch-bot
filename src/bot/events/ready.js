@@ -1,5 +1,4 @@
 var statusnumber = null;
-const client = require("../client.js")
 
 module.exports = async (client, dbl) => {
     client.user.setActivity(

@@ -42,6 +42,8 @@ fs.readdir(path.resolve('src/bot/dblevents/'), (err, files) => {
 
 client.on('message', async message => {
 
+    if (!message.guild) return;
+
 	if (!blacklistedservers[message.guild.id]) {
 		blacklistedservers[message.guild.id] = false;
 		fs.writeFile(
@@ -99,7 +101,6 @@ client.on('message', async message => {
 	prefix = guild_info.prefix;
 
 	if (message.author.bot) return;
-	if (!message.guild) return;
 	if (!message.content.toLocaleLowerCase().startsWith(prefix.toLowerCase())) return;
 	if (!message.member)
 		message.member = await message.guild.fetchMember(message);

@@ -6,7 +6,6 @@ const exphbs = require('express-handlebars');
 const router = express.Router();
 const session = require('express-session');
 const FormData = require('form-data');
-const { body,validationResult,sanitizeBody } = require("express-validator");
 
 const data = new FormData();
 

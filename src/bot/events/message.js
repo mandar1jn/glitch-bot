@@ -7,6 +7,8 @@ defaultJSON = '{}';
 
 module.exports = async (client, message) => {
 
+    if (!message.guild) return;
+
     if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`))){
     } else {
         fs.writeFileSync(
@@ -72,8 +74,6 @@ module.exports = async (client, message) => {
     const prefix = guild_info.prefix;
 
     if (message.author.bot) return;
-
-    if (!message.guild) return;
 
     if (message.content.startsWith(prefix)) return;
 
