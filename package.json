@@ -22,7 +22,6 @@
     "dblapi.js": "latest",
     "discord.js": "latest",
     "dotenv": "latest",
-    "eslint": "^7.1.0",
     "express": "latest",
     "express-handlebars": "latest",
     "express-session": "latest",
@@ -32,5 +31,8 @@
     "node-fetch": "latest",
     "random-puppy": "latest",
     "request": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^7.1.0"
   }
 }
