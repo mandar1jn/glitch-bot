@@ -48,20 +48,14 @@ module.exports = async (client, message) => {
 
     fs.writeFile(
         path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
-        JSON.stringify(guild_info),
-        err => {
-            if (err) console.log(err);
-        }
+        JSON.stringify(guild_info)
     );
 
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
-            JSON.stringify(blacklistedservers),
-            err => {
-                if (err) console.log(err);
-            }
+            JSON.stringify(blacklistedservers)
         );
     }
 
@@ -106,10 +100,7 @@ module.exports = async (client, message) => {
     }
     fs.writeFile(
         path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
-        JSON.stringify(xp),
-        err => {
-            if (err) console.log(err);
-        }
+        JSON.stringify(xp)
     );
 
     if (!munten[message.author.id]) {
@@ -128,9 +119,6 @@ module.exports = async (client, message) => {
 
     fs.writeFile(
         path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`),
-        JSON.stringify(munten),
-        err => {
-            if (err) console.log(err);
-        }
+        JSON.stringify(munten)
     );
 };

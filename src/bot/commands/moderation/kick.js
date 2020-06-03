@@ -4,7 +4,7 @@ module.exports = {
     name: "kick",
     description: "hit someone with your feet",
     category: "moderation",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         if (message.member.hasPermission("MANAGE_GUILD")){
             if (message.mentions.members.first().kickable) {
                 message.mentions.members.first().kick(0);

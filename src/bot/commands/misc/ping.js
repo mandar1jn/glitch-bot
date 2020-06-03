@@ -4,7 +4,7 @@ module.exports = {
     name: "ping",
     description: "Returns latency and API ping",
     category: "misc",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         const msg = await message.channel.send(`🏓 Pinging....`);
 
         const pingEmbed = new Discord.MessageEmbed()

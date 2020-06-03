@@ -6,4 +6,3 @@ const server = require('./site/server.js')
 server.listen(process.env.PORT || 8080)
 
 manager.spawn();
-manager.on('shardCreate', shard => console.log(`Launched shard ${shard.id}`));

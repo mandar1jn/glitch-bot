@@ -16,9 +16,8 @@ module.exports = {
 
         blacklistedservers[args[0]] = false;
 
-        fs.writeFile(path.resolve(`src/bot/databases/blacklistedservers.json`), JSON.stringify(blacklistedservers), (err) => {
-        if (err) console.log(err);
-    });
+        fs.writeFile(path.resolve(`src/bot/databases/blacklistedservers.json`), JSON.stringify(blacklistedservers)
+    );
     message.channel.send("I have unblacklisted the server")
     }
 }
