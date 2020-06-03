@@ -22,7 +22,7 @@ function imageSearch(message, image) {
             "Accept": "text/html",
             "User-Agent": "Chrome"
         }
-    };
+    }
 
     request(options, function(error, response, responseBody) {
         if (error) {
