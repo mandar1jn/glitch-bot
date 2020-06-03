@@ -1,10 +1,11 @@
 const Discord = require('discord.js')
+var mentionedUser = null;
 
 module.exports = {
     name: "avatar",
     description: "looks at someones avatar",
     category: "fun",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         if (!message.mentions.members.first()) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Avatar of: ' + message.author.tag)

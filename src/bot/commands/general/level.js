@@ -5,7 +5,7 @@ module.exports = {
     name: "level",
     description: "shows your level",
     category: "general",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
         if (!xp[message.author.id]) {
             xp[message.author.id] = {

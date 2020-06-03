@@ -28,7 +28,7 @@ function imageSearch(message, image) {
         if (error) {
             return;
         }
-        $ = cheerio.load(responseBody);
+        var $ = cheerio.load(responseBody);
 
         var links = $(".image a.link");
 
@@ -41,4 +41,4 @@ function imageSearch(message, image) {
 
         message.channel.send(urls[Math.floor(Math.random() * urls.length)]);
     });
-};
+}

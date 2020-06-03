@@ -1,6 +1,6 @@
 var statusnumber = null;
 
-module.exports = async (client, dbl) => {
+module.exports = async (client) => {
     client.user.setActivity(
         `${client.guilds.cache.size} servers using my features`,
         { type: 'WATCHING' }
