@@ -85,6 +85,8 @@ router.get('/dashboard/', (req, res) => {
   if(req.session.loggedin) {
     
     response = getUser(req.session.token)
+    //verwijder response; als je er iets mee gaat doen
+    response;
     res.sendFile(path.join(__dirname+'/dashboard.html'))
   
     
