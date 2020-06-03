@@ -30,16 +30,6 @@ fs.readdir(path.resolve('src/bot/events/'), (err, files) => {
 	});
 });
 
-fs.readdir(path.resolve('src/bot/dblevents/'), (err, files) => {
-	files.forEach(file => {
-		if (!file.endsWith('.js')) return;
-		const dblEvent = require(path.resolve(`src/bot/dblevents/${file}`));
-		let dblEventName = file.split('.')[0];
-		client.on(dblEventName, dblEvent.bind(null, dbl));
-		delete require.cache[require.resolve(path.resolve(`src/bot/dblevents/${file}`))];
-	});
-});
-
 client.on('message', async message => {
 
     if (!message.guild) return;

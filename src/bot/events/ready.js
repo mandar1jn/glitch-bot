@@ -16,8 +16,6 @@ module.exports = async (client) => {
                 { type: 'WATCHING' }
             );
             statusnumber = 0;
-        } else {
-            console.log('invalid status number');
         }
     }, 60000);
 }

@@ -18,6 +18,7 @@ async function getUser(token) {
     })
     let data = await response.json()
     setTimeout(3000);
+    //verwijder data; als je er iets mee gaat doen
     data;
 
 }
@@ -82,10 +83,8 @@ router.get('/dashboard/callback', (req, res) => {
 
 router.get('/dashboard/', (req, res) => {
   if(req.session.loggedin) {
-    console.log(req.session.token)
     
     response = getUser(req.session.token)
-    console.log(response)
     res.sendFile(path.join(__dirname+'/dashboard.html'))
   
     
