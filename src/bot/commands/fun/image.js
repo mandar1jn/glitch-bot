@@ -41,4 +41,4 @@ function imageSearch(message, image) {
 
         message.channel.send(urls[Math.floor(Math.random() * urls.length)]);
     });
-};
+}
