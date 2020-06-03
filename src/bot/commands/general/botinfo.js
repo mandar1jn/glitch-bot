@@ -4,7 +4,7 @@ module.exports = {
     name: "botinfo",
     description: "Shows info about this bot",
     category: "general",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         var usedRAM = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100;
         var maxRAM = Math.round((process.memoryUsage().heapTotal / 1024 / 1024) * 100) / 100;
         const infoEmbed = new Discord.MessageEmbed()

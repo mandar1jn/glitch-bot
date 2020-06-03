@@ -4,7 +4,7 @@ module.exports = {
     name: "serverinfo",
     description: "shows information about the server",
     category: "general",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         let serverIcon = message.guild.iconURL;
         let serverembed = new Discord.MessageEmbed()
             .setDescription("Server info")

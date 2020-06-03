@@ -4,7 +4,7 @@ module.exports = {
     name: "ban",
     description: "hit someone with the ban hammer",
     category: "moderation",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
         if (message.member.hasPermission("MANAGE_GUILD")){
             if (message.mentions.members.first().bannable) {
                 message.mentions.members.first().ban(0);

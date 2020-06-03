@@ -5,7 +5,7 @@ module.exports = {
     name: "meme",
     description: "sends a random meme",
     category: "fun",
-    run: async (client, message, args) => {
+    run: async (client, message) => {
 
         if(!message.channel.nsfw) return message.channel.send("You have to use this command in an nsfw channel")
 
