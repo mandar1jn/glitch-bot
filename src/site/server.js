@@ -18,6 +18,7 @@ async function getUser(token) {
     })
     let data = await response.json()
     setTimeout(3000);
+    data;
 
 }
 
