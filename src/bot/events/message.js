@@ -9,24 +9,21 @@ module.exports = async (client, message) => {
 
     if (!message.guild) return;
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`))){
-    } else {
+    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
             defaultJSON
         );
     }
 
-    if (fs.existsSync(path.resolve(`/src/bot/databases/xp/xp-${message.guild.id}.json`))) {
-    } else {
+    if (fs.existsSync(path.resolve(`/src/bot/databases/xp/xp-${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
             defaultJSON
         );
     }
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`))) {
-    } else {
+    if (fs.existsSync(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`),
             defaultJSON
