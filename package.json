@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mandar1jn/glitch-bot#readme",
   "dependencies": {
-    "ascii-table": "latest",
+    "ascii-table": "^0.0.9",
     "cheerio": "latest",
     "dblapi.js": "latest",
     "discord.js": "latest",
