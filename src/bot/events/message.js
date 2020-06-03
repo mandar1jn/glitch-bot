@@ -8,9 +8,9 @@ var guild_info = null;
 var xp = null;
 var munten = null;
 var xpAdd = null;
-var curLvl = null;
+var curlvl = null;
 var lvlup = null;
-var nextLvl = null;
+var nxtLvl = null;
 var curxp = null;
 
 module.exports = async (client, message) => {
