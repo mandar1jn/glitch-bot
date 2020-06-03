@@ -30,7 +30,7 @@
     "ms": "latest",
     "node-fetch": "latest",
     "random-puppy": "latest",
-    "request": "latest"
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "eslint": "^7.1.0"
