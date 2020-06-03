@@ -3,7 +3,10 @@ const fs = require('fs');
 const blacklistedservers = require(path.resolve('src/bot/databases/blacklistedservers.json'));
 const Discord = require('discord.js');
 
-defaultJSON = '{}';
+var defaultJSON = '{}';
+var guild_info = null;
+var xp = null;
+var munten = null;
 
 module.exports = async (client, message) => {
 
@@ -34,7 +37,7 @@ module.exports = async (client, message) => {
 
     if (!guild_info.prefix) {
         guild_info = {
-            prefix: botconfig.defaultprefix
+            prefix: process.env.PREFIX
         };
     }
 

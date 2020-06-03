@@ -10,6 +10,8 @@ const DBL = require('dblapi.js');
 var dbl = new DBL(process.env.TOPAPI, client);
 const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedservers.json`));
 module.exports = client;
+var prefix = null;
+var guild_info = null;
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
