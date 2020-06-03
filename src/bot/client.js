@@ -21,7 +21,6 @@ client.aliases = new Discord.Collection();
 });
 
 fs.readdir(path.resolve('src/bot/events/'), (err, files) => {
-	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
 		const event = require(path.resolve(`src/bot/events/${file}`));
@@ -32,7 +31,6 @@ fs.readdir(path.resolve('src/bot/events/'), (err, files) => {
 });
 
 fs.readdir(path.resolve('src/bot/dblevents/'), (err, files) => {
-	if (err) return console.error(err);
 	files.forEach(file => {
 		if (!file.endsWith('.js')) return;
 		const dblEvent = require(path.resolve(`src/bot/dblevents/${file}`));
@@ -50,10 +48,7 @@ client.on('message', async message => {
 		blacklistedservers[message.guild.id] = false;
 		fs.writeFile(
 			path.resolve(`src/bot/databases/blacklistedservers.json`),
-			JSON.stringify(blacklistedservers),
-			err => {
-				if (err) console.log(err);
-			}
+			JSON.stringify(blacklistedservers)
 		);
 	}
 	
@@ -88,10 +83,7 @@ client.on('message', async message => {
 
 	fs.writeFile(
 		path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
-		JSON.stringify(guild_info),
-		err => {
-			if (err) console.log(err);
-		}
+		JSON.stringify(guild_info)
 	);
 
 	prefix = guild_info.prefix;
