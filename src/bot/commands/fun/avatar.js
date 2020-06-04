@@ -11,7 +11,7 @@ module.exports = {
                 .setTitle('Avatar of: ' + message.author.tag)
                 .setColor("ffd000")
                 .setImage(message.author.displayAvatarURL({dynamic:true, format:"png"}));
-            message.channel.send(avatarEmbed)
+            return message.channel.send(avatarEmbed);
         }
         else {
             mentionedUser = message.mentions.members.first().user;
@@ -20,7 +20,7 @@ module.exports = {
                 .setColor("ffd000")
                 .setImage(mentionedUser.displayAvatarURL({dynamic:true,format:"png"}))
                 .setFooter(`Requested by: ${message.author.tag}`);
-            message.channel.send(avatarEmbed)
+            return message.channel.send(avatarEmbed);
         }
     }
 }
