@@ -38,7 +38,7 @@ client.on('message', async message => {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
-            JSON.stringify(blacklistedservers), function(err, result) {
+            JSON.stringify(blacklistedservers), function(err) {
      if(err) console.log('error', err);
    });
     }
@@ -46,7 +46,7 @@ client.on('message', async message => {
     if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
-            "{}", function(err, result) {
+            "{}", function(err) {
                 if (err) console.log('error', err);
             });
     }
@@ -54,7 +54,7 @@ client.on('message', async message => {
     if (fs.existsSync(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
-            "{}", function(err, result) {
+            "{}", function(err) {
                 if (err) console.log('error', err);
             });
     }
@@ -62,7 +62,7 @@ client.on('message', async message => {
     if (fs.existsSync(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`),
-            "{}", function(err, result) {
+            "{}", function(err) {
                 if (err) console.log('error', err);
             });
     }
@@ -77,7 +77,7 @@ client.on('message', async message => {
 
     fs.writeFile(
         path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
-        JSON.stringify(guild_info), function(err, result) {
+        JSON.stringify(guild_info), function(err) {
             if (err) console.log('error', err);
         });
 
