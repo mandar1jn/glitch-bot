@@ -1,10 +1,15 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
+const path = require("path");
+const permissions = require(path.resolve("src/bot/utils/permissions.js"));
 
 module.exports = {
     name: "ban",
     description: "hit someone with the ban hammer",
     category: "moderation",
     run: async (client, message) => {
+
+        if(!permissions(message.member, "BAN_MEMBERS")) return message.channel.send("You don't have the ``BAN_MEMBERS`` permission.")
+
         if (message.member.hasPermission("MANAGE_GUILD")){
             if (message.mentions.members.first().bannable) {
                 message.mentions.members.first().ban(0);
