@@ -4,7 +4,7 @@ module.exports = {
         return member.hasPermission(permission);
     },
     checkClientPermission: async (client, permission) => {
-        //use like checkUserPermission(message.guild.me, "MODERATOR")
+        //use like checkClientPermission(message.guild.me, "MODERATOR")
         return client.hasPermission(permission);
     }
 }
