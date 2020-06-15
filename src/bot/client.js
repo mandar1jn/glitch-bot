@@ -39,7 +39,12 @@ client.on('message', async message => {
 
     if(!message.member) return;
 
-    permissions = permissionsCheck.getPermissions(message.member, message.guild.me);
+    permissions = {
+        userPermissions: await permissionsCheck.getUserPermissions(message.member),
+        clientPermissions: await permissionsCheck.getClientPermissions(message.guild.me)
+    }
+
+    console.log(permissions);
 
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
