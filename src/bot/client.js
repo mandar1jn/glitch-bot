@@ -39,7 +39,7 @@ client.on('message', async message => {
 
     if(!message.member) return;
 
-    permissions = permissionsCheck.getPermissions(message.member, guild.me);
+    permissions = permissionsCheck.getPermissions(message.member, message.guild.me);
 
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
@@ -114,7 +114,7 @@ client.on('message', async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) {
-        command.run(client, message, args, permissions);
+        command.run(client, message, args, permissions, dbl);
     }
 });
 
