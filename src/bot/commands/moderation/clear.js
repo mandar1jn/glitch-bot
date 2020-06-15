@@ -1,11 +1,19 @@
 const Discord = require('discord.js')
+const path = require('path');
+const permissions = require(path.resolve("src/bot/utils/permissions.js"));
 
 module.exports = {
     name: "clear",
     description: "delete messages",
     category: "moderation",
     run: async (client, message, args) => {
-        if (!message.member.hasPermission("MANAGE_GUILD")) return message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
+
+        allowedToSendMessage = permissions.checkClientpermission(message.guild.me, "SEND_MESSAGES");
+
+        if (!permissions.checkUserpermission(message.member, "MANAGE_MESSAGES")) {
+            if (!allowedToSendMessage) return;
+            return message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription("You do not have the permission to do that"));
+        }
 
         if (!args[0]) return message.channel.send("Please enter an integer")
 

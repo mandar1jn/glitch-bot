@@ -12,6 +12,9 @@ const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedse
 module.exports = client;
 var prefix = null;
 var guild_info = null;
+const permissionsCheck = require(path.resolve('src/bot/utils/permissions.js'));
+var permissions = null;
+
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -34,13 +37,17 @@ client.on('message', async message => {
 
     if (!message.guild) return;
 
+    if(!message.member) return;
+
+    permissions = permissionsCheck.getPermissions(message.member, guild.me);
+
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
             JSON.stringify(blacklistedservers), function(err) {
-     if(err) console.log('error', err);
-   });
+                if (err) console.log('error', err);
+            });
     }
 
     if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)) != true) {
@@ -107,7 +114,7 @@ client.on('message', async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) {
-        command.run(client, message, args, dbl);
+        command.run(client, message, args, permissions);
     }
 });
 
