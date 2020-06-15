@@ -1,5 +1,12 @@
 var userPermissions = null;
 var clientPermissions = null;
+var permissions = null;
+var create_instant_invite = null;
+var kick_members = null;
+var ban_members = null;
+var administrator = null;
+var manage_channels = null;
+var manage_guild = null;
 
 module.exports = {
     getPermissions: async (member, client) => {
