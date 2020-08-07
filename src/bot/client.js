@@ -92,7 +92,7 @@ client.on('message', async message => {
 
     if (
         blacklistedservers[message.guild.id] === true &&
-        developers[message.author.id] != true
+        developers[message.author.id] !== true
     ) {
         return message.channel.send('This server is blacklisted!');
     }
