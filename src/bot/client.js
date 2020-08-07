@@ -12,9 +12,6 @@ const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedse
 module.exports = client;
 var prefix = null;
 var guild_info = null;
-const permissionsCheck = require(path.resolve('src/bot/utils/permissions.js'));
-var permissions = null;
-
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -38,13 +35,6 @@ client.on('message', async message => {
     if (!message.guild) return;
 
     if(!message.member) return;
-
-    permissions = {
-        userPermissions: await permissionsCheck.getUserPermissions(message.member),
-        clientPermissions: await permissionsCheck.getClientPermissions(message.guild.me)
-    }
-
-    console.log(permissions);
 
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
@@ -119,7 +109,7 @@ client.on('message', async message => {
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
     if (command) {
-        command.run(client, message, args, permissions, dbl);
+        command.run(client, message, args, dbl);
     }
 });
 

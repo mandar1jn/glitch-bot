@@ -6,6 +6,10 @@ module.exports = {
     description: "shows your level",
     category: "general",
     run: async (client, message) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+
         let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
         if (!xp[message.author.id]) {
             xp[message.author.id] = {

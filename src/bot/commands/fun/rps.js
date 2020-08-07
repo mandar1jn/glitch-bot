@@ -3,6 +3,10 @@ module.exports = {
     description: "Play rock-paper-scissor with me",
     category: "fun",
     run: async (client, message, args) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+
         if (!args[0]) return message.channel.send(`Use: .rps <rock|paper|scissor>`);
 
         var options = ["rock", "paper", "scissor"]

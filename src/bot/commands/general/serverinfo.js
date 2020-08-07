@@ -5,6 +5,10 @@ module.exports = {
     description: "shows information about the server",
     category: "general",
     run: async (client, message) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+
         let serverIcon = message.guild.iconURL;
         let serverembed = new Discord.MessageEmbed()
             .setDescription("Server info")

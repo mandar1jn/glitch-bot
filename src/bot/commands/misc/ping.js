@@ -5,6 +5,10 @@ module.exports = {
     description: "Returns latency and API ping",
     category: "misc",
     run: async (client, message) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+
         const msg = await message.channel.send(`🏓 Pinging....`);
 
         const pingEmbed = new Discord.MessageEmbed()

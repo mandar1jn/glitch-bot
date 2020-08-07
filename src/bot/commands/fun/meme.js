@@ -6,6 +6,9 @@ module.exports = {
     description: "sends a random meme",
     category: "fun",
     run: async (client, message) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
 
         if(!message.channel.nsfw) return message.channel.send("You have to use this command in an nsfw channel")
 

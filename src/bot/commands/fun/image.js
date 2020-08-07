@@ -6,6 +6,9 @@ module.exports = {
     description: "shows the image that you searched for",
     category: "fun",
     run: async (client, message, args) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
         var image = args.join(' ');
 
         imageSearch(message, image)

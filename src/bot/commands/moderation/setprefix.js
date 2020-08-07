@@ -6,6 +6,9 @@ module.exports = {
     description: "Set the prefix for the bot",
     category: "moderation",
     run: async (client, message, args) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
 
         const guild_info = require(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`));
 

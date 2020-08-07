@@ -6,6 +6,9 @@ module.exports = {
     description: "looks at someones avatar",
     category: "fun",
     run: async (client, message) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
         if (!message.mentions.members.first()) {
             const avatarEmbed = new Discord.MessageEmbed()
                 .setTitle('Avatar of: ' + message.author.tag)

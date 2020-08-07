@@ -5,6 +5,10 @@ module.exports = {
     description: 'user information',
     category: "general",
     run(client, message, args, permissions, dbl) {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+
         const member = message.mentions.members.first() || message.member;
         const user = message.author;
 

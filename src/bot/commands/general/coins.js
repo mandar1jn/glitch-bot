@@ -6,6 +6,9 @@ module.exports = {
     description: "shows your coins",
     category: "general",
     run: async (client, message)=> {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
         let munten = require(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`));
         if (!munten[message.author.id]) {
             if (!munten[message.author.id]) {

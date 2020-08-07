@@ -5,6 +5,9 @@ module.exports = {
     description: "Sends this help message",
     category: "general",
     run: async (client, message, args) => {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
 
         const guild_info = require(`../../databases/guild info/${message.guild.id}.json`);
 

@@ -3,6 +3,9 @@ module.exports = {
     description: 'generates a 8ball game for a user',
     category: 'fun',
     run(client, message, args) {
+        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
         if(!args[0]) {
             message.channel.send('Please ask me a question.');
           }
