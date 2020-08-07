@@ -1,5 +1,4 @@
-const Discord = require('discord.js')
-const path = require("path");
+const Discord = require('discord.js');
 
 module.exports = {
     name: "kick",
