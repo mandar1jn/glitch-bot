@@ -2,7 +2,7 @@ body {
   text-align: center;
 }
 
-div.itemmandar1jn {
+.itemmandar1jn {
     vertical-align: top;
     display: inline-block;
     text-align: center;
@@ -12,7 +12,7 @@ div.itemmandar1jn {
     margin-right: 10em;
 }
 
-div.itemquikdropz {
+.itemquikdropz {
     vertical-align: top;
     display: inline-block;
     text-align: center;
@@ -21,7 +21,7 @@ div.itemquikdropz {
 }
 
 
-div.itemTiger {
+.itemTiger {
   vertical-align: top;
   display: inline-block;
   text-align: center;
@@ -65,7 +65,7 @@ div.itemTiger {
 
 
 @media(max-width:600px) {
-  div.item  {
+  .item  {
     left: 50%;
     margin-right: 40%;
   }

@@ -32,7 +32,7 @@ module.exports = {
 			return message.channel.bulkDelete(amount).then(() => {
 				message.channel
 					.send(`I have removed ${amount - 1} messages`)
-					.then(message => message.delete(3000));
+					.then(message => message.delete({timeout:3000}));
 			});
 		}
 		return message.channel.send('Please enter an integer');
