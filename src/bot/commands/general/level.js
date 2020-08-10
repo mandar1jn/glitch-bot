@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const path = require("path")
+const path = require("path");
+const canvas = require("canvas");
 
 module.exports = {
     name: "level",
@@ -22,13 +23,14 @@ module.exports = {
         let nxtLvlXp = curlvl * 300 * 1.2;
         let difference = nxtLvlXp - curxp;
 
-        let lvlEmbed = new Discord.MessageEmbed()
-            .setAuthor(message.author.username)
-            .setColor("ffd000")
-            .addField("Level", curlvl, true)
-            .addField("XP", curxp, true)
-            .setFooter(`${difference} XP needed for the next level`, message.author.displayAvatarURL);
+let image = canvas.createCanvas(200, 100)
+let ctxAvatar = image.getContext("2d");
+let xpCtx = image.getContext("2d");
+let xpText = curxp + "/" + nxtLvlXp + " xp to level " + curlvl + 1;
+xpCtx.font = '12px "Comic Sans"'
+xpCtx.fillText(xpText, 0, 0)
+        let attachment = new Discord.MessageAttachment(image.toBuffer());
 
-        message.channel.send(lvlEmbed);
+        message.channel.send(attachment);
     }
 }

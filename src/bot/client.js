@@ -20,13 +20,13 @@ client.aliases = new Discord.Collection();
     require(path.resolve(`src/bot/handlers/${handler}`))(client);
 });
 
-fs.readdir(path.resolve('src/bot/events/'), (err, files) => {
+fs.readdir(path.resolve('src/bot/client-events/'), (err, files) => {
     files.forEach(file => {
         if (!file.endsWith('.js')) return;
-        const event = require(path.resolve(`src/bot/events/${file}`));
+        const event = require(path.resolve(`src/bot/client-events/${file}`));
         let eventName = file.split('.')[0];
         client.on(eventName, event.bind(null, client));
-        delete require.cache[require.resolve(path.resolve(`src/bot/events/${file}`))];
+        delete require.cache[require.resolve(path.resolve(`src/bot/client-events/${file}`))];
     });
 });
 
@@ -96,21 +96,13 @@ client.on('message', async message => {
     ) {
         return message.channel.send('This server is blacklisted!');
     }
+    
+    client.emit("command", message, guild_info);
 
-    const args = message.content
-        .slice(prefix.length)
-        .trim()
-        .split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-
-    if (cmd.length === 0) return;
-
-    let command = client.commands.get(cmd);
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-
-    if (command) {
-        command.run(client, message, args, dbl);
-    }
+    
+    
 });
 
 client.login(process.env.TOKEN);
+
+module.exports = client;

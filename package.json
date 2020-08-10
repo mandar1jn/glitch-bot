@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "ascii-table": "0.0.9",
+        "canvas": "^2.6.1",
         "cheerio": "^0.22.0",
         "dblapi.js": "^2.4.0",
         "discord.js": "^12.2.0",
