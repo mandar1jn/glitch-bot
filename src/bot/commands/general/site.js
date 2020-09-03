@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'website',
+    name: 'site',
     description: 'Sends a link to our official website',
     category: 'general',
     run: async (client, message) => {

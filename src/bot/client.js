@@ -7,7 +7,7 @@ const client = new Discord.Client({
     disableMentions: 'everyone'
 });
 const DBL = require('dblapi.js');
-var dbl = new DBL(process.env.TOPAPI, client);
+var dbl = new DBL(process.env.TOPAPI, { webhookPort: 5000, webhookAuth: "glitched" }, client);
 const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedservers.json`));
 module.exports = client;
 var prefix = null;
@@ -35,8 +35,18 @@ fs.readdir(path.resolve('src/bot/dbl-events/'), (err, files) => {
         if (!file.endsWith('.js')) return;
         const event = require(path.resolve(`src/bot/dbl-events/${file}`));
         let eventName = file.split('.')[0];
-        dbl.on(eventName, event.bind(null, client));
+        dbl.on(eventName, event.bind(null, dbl));
         delete require.cache[require.resolve(path.resolve(`src/bot/dbl-events/${file}`))];
+    });
+});
+
+fs.readdir(path.resolve('src/bot/dbl-webhook-events/'), (err, files) => {
+    files.forEach(file => {
+        if (!file.endsWith('.js')) return;
+        const event = require(path.resolve(`src/bot/dbl-webhook-events/${file}`));
+        let eventName = file.split('.')[0];
+        dbl.webhook.on(eventName, event.bind(null, dbl.webhook));
+        delete require.cache[require.resolve(path.resolve(`src/bot/dbl-webhook-events/${file}`))];
     });
 });
 
@@ -44,7 +54,7 @@ client.on('message', async message => {
 
     if (!message.guild) return;
 
-    if(!message.member) return;
+    if (!message.member) return;
 
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
@@ -106,11 +116,11 @@ client.on('message', async message => {
     ) {
         return message.channel.send('This server is blacklisted!');
     }
-    
+
     client.emit("command", message, guild_info);
 
-    
-    
+
+
 });
 
 client.login(process.env.TOKEN);

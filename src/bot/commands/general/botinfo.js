@@ -14,6 +14,7 @@ module.exports = {
             .setTitle("Bot info")
             .addField("Used RAM", `${usedRAM} MB`)
             .addField("Max RAM", `${maxRAM} MB`)
+            .addField("Development Team", "Glitched Development")
 
         if(!permissions.clientPermissions.send_message) return;
         message.channel.send(infoEmbed);
