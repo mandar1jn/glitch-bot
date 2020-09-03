@@ -12,6 +12,7 @@ const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedse
 module.exports = client;
 var prefix = null;
 var guild_info = null;
+const defaultguildinfo = require(path.resolve(`src/bot/databases/defaultguildinfo.json`));
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
@@ -56,6 +57,14 @@ client.on('message', async message => {
 
     if (!message.member) return;
 
+    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)) != true) {
+        fs.writeFileSync(
+            path.resolve(`src/bot/databases/blacklistedservers.json`),
+            "{}", function(err) {
+                if (err) console.log('error', err);
+            });
+    }
+
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
@@ -68,7 +77,7 @@ client.on('message', async message => {
     if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
-            "{}", function(err) {
+            JSON.stringify(defaultguildinfo), function(err) {
                 if (err) console.log('error', err);
             });
     }
