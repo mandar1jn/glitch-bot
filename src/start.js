@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 const path = require("path");
-process.env.FONTCONFIG_PATH=path.resolve("src/fonts/");
+process.env.FONTCONFIG_PATH = path.resolve("src/fonts/");
 const { ShardingManager } = require('discord.js');
 const manager = new ShardingManager(path.resolve('src/bot/client.js'), { token: process.env.TOKEN });
-const server = require(path.resolve('src/site/server.js'));
+//const server = require(path.resolve('src/site/server.js'));
 const fs = require("fs")
 
 manager.on('message', (manager, shard, message) => {
@@ -21,6 +21,6 @@ fs.readdir(path.resolve('src/bot/manager-events/'), (err, files) => {
     });
 });
 
-server.listen(process.env.PORT || 8080);
+//server.listen(process.env.PORT || 8080);
 
 manager.spawn();

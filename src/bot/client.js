@@ -106,7 +106,7 @@ client.on('message', async message => {
     prefix = guild_info.prefix;
 
     if (message.author.bot) return;
-    if (!message.content.toLocaleLowerCase().startsWith(prefix.toLowerCase())) return;
+    if (!message.content.toLowerCase().startsWith(prefix.toLowerCase())) return;
     if (!message.member)
         message.member = await message.guild.fetchMember(message);
 
