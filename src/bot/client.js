@@ -90,9 +90,9 @@ client.on('message', async message => {
             });
     }
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`)) != true) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`)) != true) {
         fs.writeFileSync(
-            path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`),
+            path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`),
             "{}", function(err) {
                 if (err) console.log('error', err);
             });

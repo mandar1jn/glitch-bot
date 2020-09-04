@@ -34,6 +34,21 @@ const utils = new class{
         else{
             console.log("xp has been validated.")
         }
+
+        //validates the coins database folder
+        if(!fs.existsSync(path.resolve("src/bot/databases/coins/"))){
+            fs.mkdirSync(path.resolve("src/bot/databases/coins/"), true, function(e){
+                if(e){
+                    console.log("something went wrong while creating a directory: " + e);
+                }
+                else{
+                    console.log("coins has been created.")
+                }
+            })
+        }
+        else{
+            console.log("coins has been validated.")
+        }
     }
 }
 

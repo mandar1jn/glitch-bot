@@ -9,22 +9,22 @@ module.exports = {
         if(!message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        let munten = require(path.resolve(`src/bot/databases/munten/munten-${message.guild.id}.json`));
-        if (!munten[message.author.id]) {
-            if (!munten[message.author.id]) {
-                munten[message.author.id] = {
-                    munten: 0,
+        let coins = require(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`));
+        if (!coins[message.author.id]) {
+            if (!coins[message.author.id]) {
+                coins[message.author.id] = {
+                    coins: 0,
                     volgende_munt: 5
                 };
             }
         }
 
-        let muntenEmbed = new Discord.MessageEmbed()
+        let coinsEmbed = new Discord.MessageEmbed()
             .setAuthor(message.author.username)
             .setColor("ffd000")
-            .addField("Coins", munten[message.author.id].munten, true)
-            .setFooter(`You still have to send ${munten[message.author.id].volgende_munt} more message(s) to get your next coin`, message.author.displayAvatarURL);
+            .addField("Coins", coins[message.author.id].coins, true)
+            .setFooter(`You still have to send ${coins[message.author.id].volgende_munt} more message(s) to get your next coin`, message.author.displayAvatarURL);
 
-        message.channel.send(muntenEmbed)
+        message.channel.send(coinsEmbed)
     }
 }
