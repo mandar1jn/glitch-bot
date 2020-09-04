@@ -3,13 +3,13 @@ body {
 }
 
 .itemmandar1jn {
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
-    width: 120px;
-    float: left;
-    margin-left: 3em;
-    margin-right: 10em;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+  float: left;
+  margin-left: 3em;
+  margin-right: 10em;
 }
 
 .itemquikdropz {
@@ -64,7 +64,7 @@ body {
 }
 
 
-@media(max-width:600px) {
+@media(max-width: 600px) {
   .item  {
     left: 50%;
     margin-right: 40%;
