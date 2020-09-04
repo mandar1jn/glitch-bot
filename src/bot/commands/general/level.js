@@ -23,7 +23,8 @@ module.exports = {
         let nxtLvlXp = curlvl * 300 * 1.2;
 
         let image = canvas.createCanvas(200, 100)
-        let ctxAvatar = image.getContext("2d");
+        //uncomment when used
+        //let ctxAvatar = image.getContext("2d");
         let xpCtx = image.getContext("2d");
         let xpText = curxp + "/" + nxtLvlXp + " xp to level " + curlvl + 1;
         xpCtx.font = '12px "Comic Sans"'
