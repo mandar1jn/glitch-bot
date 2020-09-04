@@ -8,21 +8,20 @@ h2 {
 
 
 iframe {
-	float: right;
+  float: right;
   border: 2px #333 solid;
   border-radius: 10%;
 }
 
 hr {
-	border-top: 2px dotted #e32517;
-
+  border-top: 2px dotted #e32517;
 }
 
 #first-section {
   padding: 5px;
   border: 1px black solid;
   color: #333;
-  margin-bottom:1em;
+  margin-bottom: 1em;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #fff;
@@ -39,11 +38,9 @@ hr {
 #third-section {
   padding: 5px;
   border: 1px #333 solid;
-
   color: black;
   font-weight: 450;
   background-color: #fff;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-
 }
