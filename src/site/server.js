@@ -15,8 +15,8 @@ async function getUser(token) {
     let response = await fetch("https://discordapp.com/api/users/@me", {
         method: 'GET',
         headers: { 'Authorization': `Bearer ${token}` }
-    })
-    let data = await response.json()
+    });
+    let data = await response.json();
     setTimeout(3000);
     //verwijder data; als je er iets mee gaat doen
     data;
@@ -59,7 +59,7 @@ router.get('/stats/', (req, res) => {
 
 router.get('/dashboard/login/', (req, res) => {
     res.redirect(process.env.OAUTH_URL)
-})
+});
 
 router.get('/dashboard/callback', (req, res) => {
     data.append('client_id', process.env.CLIENT_ID);
@@ -78,28 +78,28 @@ router.get('/dashboard/callback', (req, res) => {
         req.session.token = auth['access_token']
 
         res.redirect('/dashboard')
-    })
-})
+    });
+});
 
 router.get('/dashboard/', (req, res) => {
     if (req.session.loggedin) {
 
-        response = getUser(req.session.token)
+        response = getUser(req.session.token);
         //verwijder response; als je er iets mee gaat doen
         response;
-        res.sendFile(path.join(__dirname + '/dashboard.html'))
+        res.sendFile(path.join(__dirname + '/dashboard.html'));
 
 
 
     } else {
-        res.status(403)
-        res.write("<h1>You are not logged in! <a href = /dashboard/login>Click here to login</a></h1>")
-        res.end()
+        res.status(403);
+        res.write("<h1>You are not logged in! <a href = /dashboard/login>Click here to login</a></h1>");
+        res.end();
     }
-})
+});
 
-router.post
+router.post();
 
-app.use('/', router)
+app.use('/', router);
 
 module.exports = app;
