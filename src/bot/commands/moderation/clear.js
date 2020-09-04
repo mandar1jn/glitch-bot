@@ -19,8 +19,8 @@ module.exports = {
 
 		if (!args[0]) return message.channel.send('Please enter an integer');
 
-		if (Number.isInteger(parseInt(args[0]))) {
-			var amount = parseInt(args[0]) + 1;
+		if (Number.isInteger(parseInt(args[0], 2))) {
+			var amount = parseInt(args[0], 2) + 1;
 
 			if (amount > 100)
 				return message.channel.send('You can not remove more than 99 messages');
