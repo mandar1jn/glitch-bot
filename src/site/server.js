@@ -98,8 +98,6 @@ router.get('/dashboard/', (req, res) => {
     }
 });
 
-router.post();
-
 app.use('/', router);
 
 module.exports = app;
