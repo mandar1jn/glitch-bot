@@ -2,7 +2,7 @@
 body{
   background-color: #f4f4f4;
   color: #333;
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   line-height: 1.6em;
   margin: 0;
@@ -21,7 +21,7 @@ body{
   width: 100%;
   padding-top: 1px;
   height: 4em;
-  adding-bottom: 1px;
+  padding-bottom: 1px;
   margin: 0;
   background-color: #940606;
 }
