@@ -54,15 +54,13 @@ body {
   left: 50px;
 }
 
-
 .developers a:hover {
   text-decoration: none;
   font-size: 25px;
   color: coral;
-
 }
 
-@media(max-width: 600px) {
+@media (max-width: 600px) {
   .item {
     left: 50%;
     margin-right: 40%;
