@@ -13,13 +13,12 @@ body {
 }
 
 .itemquikdropz {
-    vertical-align: top;
-    display: inline-block;
-    text-align: center;
-    width: 120px;
-    align-content: center;
+  vertical-align: top;
+  display: inline-block;
+  text-align: center;
+  width: 120px;
+  align-content: center;
 }
-
 
 .itemTiger {
   vertical-align: top;
@@ -32,7 +31,7 @@ body {
 }
 
 .caption {
-    display: block;
+  display: block;
 }
 
 .developers img {
@@ -63,12 +62,10 @@ body {
 
 }
 
-
 @media(max-width: 600px) {
-  .item  {
+  .item {
     left: 50%;
     margin-right: 40%;
   }
 
 }
-
