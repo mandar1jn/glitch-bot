@@ -128,8 +128,6 @@ client.on('message', async message => {
 
     client.emit("command", message, guild_info);
 
-
-
 });
 
 client.login(process.env.TOKEN);
