@@ -1,42 +1,38 @@
 
 body{
-	background-color: #f4f4f4;
-	color: #333;
-	font-family:Arial, Helvetica, sans-serif;
-	font-size: 16px;
-	line-height: 1.6em;
-	margin: 0;
+  background-color: #f4f4f4;
+  color: #333;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6em;
+  margin: 0;
   padding: 0;
 }
 
-
 .container{
-	width: 80%;
-	margin: auto;
-	overflow: hidden;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
 }
 
 #main-header {
   color: white;
-	text-align: center;
-	width: 100%;
-	padding-top: 1px;
-	height: 4em;
-	p  adding-bottom: 1px;
+  text-align: center;
+  width: 100%;
+  padding-top: 1px;
+  height: 4em;
+  adding-bottom: 1px;
   margin: 0;
-	background-color: #940606;
+  background-color: #940606;
 }
 
 .invite-image {
-
   object-position: 50%;
   object-fit: none;
   display: block;
   width: 100%;
   color: white;
   padding-bottom: 260px;
-  
-
 }
 
 #invite-image {
