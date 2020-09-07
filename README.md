@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/73cb167a26244568bd74da241c868300)](https://app.codacy.com/manual/marijnkneppers/glitch-bot?utm_source=github.com&utm_medium=referral&utm_content=mandar1jn/glitch-bot&utm_campaign=Badge_Grade_Dashboard)
 [![Depfu](https://badges.depfu.com/badges/eb33e7305b51010f833082ded3cb5a07/status.svg)](https://depfu.com)
 [![Depfu](https://badges.depfu.com/badges/eb33e7305b51010f833082ded3cb5a07/overview.svg)](https://depfu.com/github/mandar1jn/glitch-bot?project_id=13554)
 [![Depfu](https://badges.depfu.com/badges/eb33e7305b51010f833082ded3cb5a07/count.svg)](https://depfu.com/github/mandar1jn/glitch-bot?project_id=13554)
