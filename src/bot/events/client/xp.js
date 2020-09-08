@@ -39,7 +39,7 @@ module.exports = async (client, message) => {
     }
 
     let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
-    coins = require(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`));
+    let coins = require(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`));
 
     let prefix = guild_info.prefix;
 

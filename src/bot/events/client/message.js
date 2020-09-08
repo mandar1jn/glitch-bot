@@ -29,7 +29,7 @@ module.exports = async (client, message) => {
             });
     }
 
-    guild_info = require(path.resolve(`src/bot/databases/guild info/${guildID}.json`));
+    let guild_info = require(path.resolve(`src/bot/databases/guild info/${guildID}.json`));
 
     await utils.validateGuildData(guildID, guild_info);
 
