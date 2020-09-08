@@ -35,7 +35,7 @@ module.exports = async (client, message) => {
 
     client.emit('xp', client, message);
 
-    prefix = guild_info.prefix;
+    let prefix = guild_info.prefix;
 
     if (message.author.bot) return;
     if (!message.content.toLowerCase().startsWith(prefix.toLowerCase())) return;
