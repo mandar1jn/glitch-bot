@@ -5,8 +5,11 @@ const ascii = require("ascii-table");
 
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status", "Category");
+const {Collection} = require('discord.js');
 
-module.exports = (client) => {
+module.exports.registerCommands = (client) => {
+    client.commands = new Collection();
+client.aliases = new Collection();
     readdirSync(path.resolve("src/bot/commands/")).forEach(dir => {
         const commands = readdirSync(path.resolve(`src/bot/commands/${dir}/`)).filter(file => file.endsWith(".js"));
 

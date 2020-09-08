@@ -3,9 +3,11 @@ const fs = require('fs');
 //requires path to easily find the path in the project
 const path = require('path');
 
-const utils = new class {
-    validateDataFolders = function() {
-        //validates the guild info database folder
+const defaultguildinfo = require(path.resolve(`src/bot/databases/defaultguildinfo.json`));
+
+
+module.exports.validateDataFolders = async () => {
+    //validates the guild info database folder
         if (!fs.existsSync(path.resolve("src/bot/databases/guild info/"))) {
             fs.mkdirSync(path.resolve("src/bot/databases/guild info/"), true, function(e) {
                 if (e) {
@@ -34,7 +36,42 @@ const utils = new class {
             })
         }
         console.log("coins has been validated.")
-    }
 }
 
-module.exports = utils;
+module.exports.validateGuildData = async (guildID, guild_info) => {
+    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) != true) {
+        fs.writeFileSync(
+            path.resolve(`src/bot/databases/guild info/${guildID}.json`),
+            JSON.stringify(defaultguildinfo), function(err) {
+                if (err) console.log('error', err);
+            });
+    }
+
+    if (fs.existsSync(path.resolve(`src/bot/databases/xp/xp-${guildID}.json`)) != true) {
+        fs.writeFileSync(
+            path.resolve(`src/bot/databases/xp/xp-${guildID}.json`),
+            "{}", function(err) {
+                if (err) console.log('error', err);
+            });
+    }
+
+    if (fs.existsSync(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`)) != true) {
+        fs.writeFileSync(
+            path.resolve(`src/bot/databases/coins/coins-${guildID}.json`),
+            "{}", function(err) {
+                if (err) console.log('error', err);
+            });
+    }
+
+    if (guild_info.prefix == null) {
+        guild_info = {
+            prefix: process.env.PREFIX
+        };
+    }
+
+    fs.writeFile(
+        path.resolve(`src/bot/databases/guild info/${guildID}.json`),
+        JSON.stringify(guild_info), function(err) {
+            if (err) console.log('error', err);
+        });
+}
