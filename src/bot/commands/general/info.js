@@ -9,7 +9,7 @@ module.exports = {
             return;
         }
 
-        const member = messageObject.message.mentions.members.first() || message.member;
+        const member = messageObject.message.mentions.members.first() || messageObject.message.member;
         const user = messageObject.message.author;
 
         const embed = new Discord.MessageEmbed()
