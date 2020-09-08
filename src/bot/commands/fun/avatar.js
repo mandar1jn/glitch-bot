@@ -5,27 +5,27 @@ module.exports = {
 	name: 'avatar',
 	description: 'looks at someones avatar',
 	category: 'fun',
-	run: async (client, message) => {
-		if (!message.guild.me.hasPermission('SEND_MESSAGES')) {
+	run: async (client, messageObject) => {
+		if (!messageObject.message.guild.me.hasPermission('SEND_MESSAGES')) {
 			return;
 		}
-		if (!message.mentions.members.first()) {
+		if (!messageObject.message.mentions.members.first()) {
 			const avatarEmbed = new Discord.MessageEmbed()
-				.setTitle('Avatar of: ' + message.author.tag)
+				.setTitle('Avatar of: ' + messageObject.message.author.tag)
 				.setColor('ffd000')
 				.setImage(
-					message.author.displayAvatarURL({ dynamic: true, format: 'png' })
+					messageObject.message.author.displayAvatarURL({ dynamic: true, format: 'png' })
 				);
-			return message.channel.send(avatarEmbed);
+			return messageObject.message.channel.send(avatarEmbed);
 		}
-		mentionedUser = message.mentions.members.first().user;
+		mentionedUser = messageObject.message.mentions.members.first().user;
 		const avatarEmbed = new Discord.MessageEmbed()
 			.setTitle('Avatar of: ' + mentionedUser.tag)
 			.setColor('ffd000')
 			.setImage(
 				mentionedUser.displayAvatarURL({ dynamic: true, format: 'png' })
 			)
-			.setFooter(`Requested by: ${message.author.tag}`);
-		return message.channel.send(avatarEmbed);
+			.setFooter(`Requested by: ${messageObject.message.author.tag}`);
+		return messageObject.message.channel.send(avatarEmbed);
 	}
 };

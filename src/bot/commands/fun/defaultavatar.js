@@ -5,20 +5,20 @@ module.exports = {
 	name: 'defaultavatar',
 	description: 'looks at someones default avatar',
 	category: 'fun',
-	run: async (client, message) => {
-		if (!message.mentions.members.first()) {
+	run: async (client, messageObject) => {
+		if (!messageObject.message.mentions.members.first()) {
 			const avatarEmbed = new Discord.MessageEmbed()
-				.setTitle('Default avatar of: ' + message.author.tag)
+				.setTitle('Default avatar of: ' + messageObject.message.author.tag)
 				.setColor('ffd000')
-				.setImage(message.author.defaultAvatarURL);
-			message.channel.send(avatarEmbed);
+				.setImage(messageObject.message.author.defaultAvatarURL);
+			return messageObject.message.channel.send(avatarEmbed);
 		}
-		mentionedUser = message.mentions.members.first().user;
+		mentionedUser = messageObject.message.mentions.members.first().user;
 		const avatarEmbed = new Discord.MessageEmbed()
 			.setTitle('Default avatar of: ' + mentionedUser.tag)
 			.setColor('ffd000')
 			.setImage(mentionedUser.defaultAvatarURL)
-			.setFooter(`Requested by: ${message.author.tag}`);
-		message.channel.send(avatarEmbed);
+			.setFooter(`Requested by: ${messageObject.message.author.tag}`);
+		return messageObject.message.channel.send(avatarEmbed);
 	}
 };

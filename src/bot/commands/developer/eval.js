@@ -5,15 +5,15 @@ module.exports = {
     name: 'eval',
     description: 'evaluate some code',
     category: 'developer',
-    run: async (client, message, args) => {
+    run: async (client, messageObject) => {
         if (
-            !developers[message.author.id] === true &&
-            !developers[message.author.id]
+            !developers[messageObject.message.author.id] === true &&
+            !developers[messageObject.message.author.id]
         ) {
-            return message.channel.send('You are not a developer of this bot');
+            return messageObject.message.channel.send('You are not a developer of this bot');
         }
 
         var command = args.join(' ');
-        message.channel.send(eval(command))
+        messageObject.message.channel.send(eval(command))
     }
 };

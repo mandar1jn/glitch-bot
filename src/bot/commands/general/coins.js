@@ -5,14 +5,16 @@ module.exports = {
     name: "coins",
     description: "shows your coins",
     category: "general",
-    run: async (client, message)=> {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run: async (client, messageObject)=> {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        let coins = require(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`));
-        if (!coins[message.author.id]) {
-            if (!coins[message.author.id]) {
-                coins[message.author.id] = {
+        let guildID = messageObject.message.guild.id;
+        let authorID = messageObject.message.author.id;
+        let coins = require(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`));
+        if (!coins[authorID]) {
+            if (!coins[authorID]) {
+                coins[authorID] = {
                     coins: 0,
                     volgende_munt: 5
                 };
@@ -20,11 +22,11 @@ module.exports = {
         }
 
         let coinsEmbed = new Discord.MessageEmbed()
-            .setAuthor(message.author.username)
+            .setAuthor(messageObject.message.author.username)
             .setColor("ffd000")
-            .addField("Coins", coins[message.author.id].coins, true)
-            .setFooter(`You still have to send ${coins[message.author.id].volgende_munt} more message(s) to get your next coin`, message.author.displayAvatarURL);
+            .addField("Coins", coins[authorID].coins, true)
+            .setFooter(`You still have to send ${coins[authorID].volgende_munt} more message(s) to get your next coin`, messageObject.message.author.displayAvatarURL);
 
-        message.channel.send(coinsEmbed)
+        messageObject.message.channel.send(coinsEmbed)
     }
 }

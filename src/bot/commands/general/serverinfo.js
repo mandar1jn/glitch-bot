@@ -4,21 +4,21 @@ module.exports = {
     name: "serverinfo",
     description: "shows information about the server",
     category: "general",
-    run: async (client, message) => {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run: async (client, messageObject) => {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
 
-        let serverIcon = message.guild.iconURL;
+        let serverIcon = messageObject.message.guild.iconURL;
         let serverembed = new Discord.MessageEmbed()
             .setDescription("Server info")
             .setColor("ffd000")
             .setThumbnail(serverIcon)
-            .addField("Server name", message.guild.name)
-            .addField("Created at", message.guild.createdAt)
-            .addField("Joined at", message.member.joinedAt)
-            .addField("Number of people", message.guild.memberCount);
+            .addField("Server name", messageObject.message.guild.name)
+            .addField("Created at", messageObject.message.guild.createdAt)
+            .addField("Joined at", messageObject.message.member.joinedAt)
+            .addField("Number of people", messageObject.message.guild.memberCount);
 
-        message.channel.send(serverembed);
+        return messageObject.message.channel.send(serverembed);
     }
 }

@@ -4,8 +4,8 @@ module.exports = {
     name: "botinfo",
     description: "Shows info about this bot",
     category: "general",
-    run: async (client, message, args, permissions) => {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run: async (client, messageObject) => {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
         var usedRAM = Math.round((process.memoryUsage().heapUsed / 1024 / 1024) * 100) / 100;
@@ -17,6 +17,6 @@ module.exports = {
             .addField("Development Team", "Glitched Development")
 
         if(!permissions.clientPermissions.send_message) return;
-        message.channel.send(infoEmbed);
+        messageObject.message.channel.send(infoEmbed);
     } 
 }

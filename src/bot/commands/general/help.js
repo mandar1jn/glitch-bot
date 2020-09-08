@@ -4,16 +4,16 @@ module.exports = {
     name: "help",
     description: "Sends this help message",
     category: "general",
-    run: async (client, message, args) => {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run: async (client, messageObject) => {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
 
-        const guild_info = require(`../../databases/guild info/${message.guild.id}.json`);
+        const guild_info = require(`../../databases/guild info/${messageObject.message.guild.id}.json`);
 
         var commandList = [];
 
-        if (!args[0]) return message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
+        if (!messageObject.args[0]) return messageObject.message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
 
         client.commands.forEach(command => {
 
@@ -62,7 +62,7 @@ module.exports = {
             response.setTitle("misc")
         }
         else {
-            return message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
+            return messageObject.message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
         }
 
         for (var i = 0; i < commandList.length; i++) {
@@ -71,6 +71,6 @@ module.exports = {
 
         }
 
-        message.channel.send(response)
+        return messageObject.message.channel.send(response);
     }
 }

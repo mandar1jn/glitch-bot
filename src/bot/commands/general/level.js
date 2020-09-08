@@ -6,25 +6,25 @@ module.exports = {
     name: "level",
     description: "shows your level",
     category: "general",
-    run: async (client, message) => {
-        if (!message.guild.me.hasPermission("SEND_MESSAGES")) {
+    run: async (client, messageObject) => {
+        if (!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")) {
             return;
         }
 
-        let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
-        if (!xp[message.author.id]) {
-            xp[message.author.id] = {
+        let xp = require(path.resolve(`src/bot/databases/xp/xp-${messageObject.message.guild.id}.json`));
+        if (!xp[messageObject.message.author.id]) {
+            xp[messageObject.message.author.id] = {
                 xp: 0,
                 level: 1
             };
         }
         fs.writeFile(
-        path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
+        path.resolve(`src/bot/databases/xp/xp-${messageObject.message.guild.id}.json`),
         JSON.stringify(xp), function(err) {
             if (err) console.log('error', err);
         });
-        let curxp = xp[message.author.id].xp;
-        let curlvl = xp[message.author.id].level;
+        let curxp = xp[messageObject.message.author.id].xp;
+        let curlvl = xp[messageObject.message.author.id].level;
         let nxtLvlXp = curlvl * 300 * 1.2;
 
         let image = canvas.createCanvas(200, 100)
@@ -36,6 +36,6 @@ module.exports = {
         xpCtx.fillText(xpText, 0, 0)
         let attachment = new Discord.MessageAttachment(image.toBuffer());
 
-        message.channel.send(attachment);
+        return messageObject.message.channel.send(attachment);
     }
 }

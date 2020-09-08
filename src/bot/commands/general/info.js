@@ -4,13 +4,13 @@ module.exports = {
     name: 'info',
     description: 'user information',
     category: "general",
-    run(client, message, args, permissions, dbl) {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run(client, messageObject) {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
 
-        const member = message.mentions.members.first() || message.member;
-        const user = message.author;
+        const member = messageObject.message.mentions.members.first() || message.member;
+        const user = messageObject.message.author;
 
         const embed = new Discord.MessageEmbed()
             .setTitle(`${user.username}`)
@@ -21,9 +21,8 @@ module.exports = {
             .addField('ID', user.id, true)
             .addField('Account Created', user.createdAt.toDateString(), true)
             .addField('Joined Server', member.joinedAt.toDateString(), true)
-            .addField('Has voted', dbl.hasVoted(message.author.id))
             .setFooter('User Info', user.displayAvatarURL);
 
-        message.channel.send(embed);
+        return messageObject.message.channel.send(embed);
     },
 };

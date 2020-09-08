@@ -2,12 +2,12 @@ module.exports = {
     name: '8ball',
     description: 'generates a 8ball game for a user',
     category: 'fun',
-    run(client, message, args) {
-        if(!message.guild.me.hasPermission("SEND_MESSAGES")){
+    run(client, messageObject) {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        if(!args[0]) {
-            message.channel.send('Please ask me a question.');
+        if(!messageObject.args[0]) {
+            messageObject.message.channel.send('Please ask me a question.');
           }
           else {
             let eightball = [
@@ -42,7 +42,7 @@ module.exports = {
             'Good Luck',
             ];
             let index = (Math.floor(Math.random() * Math.floor(eightball.length)));
-            message.channel.send(eightball[index]);
+            return messageObject.message.channel.send(eightball[index]);
           }
     },
 };
