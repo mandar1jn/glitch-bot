@@ -18,6 +18,11 @@ module.exports = {
                 level: 1
             };
         }
+        fs.writeFile(
+        path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
+        JSON.stringify(xp), function(err) {
+            if (err) console.log('error', err);
+        });
         let curxp = xp[message.author.id].xp;
         let curlvl = xp[message.author.id].level;
         let nxtLvlXp = curlvl * 300 * 1.2;

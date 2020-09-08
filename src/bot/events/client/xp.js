@@ -58,7 +58,7 @@ module.exports = async (client, message) => {
 
     let curxp = xp[message.author.id].xp;
     let curlvl = xp[message.author.id].level;
-    let nxtLvl = xp[message.author.id].level * 300 * 1.2;
+    let nxtLvl = curlvl * 300 * 1.2;
     xp[message.author.id].xp = curxp + xpAdd;
     if (nxtLvl <= xp[message.author.id].xp) {
         xp[message.author.id].level = curlvl + 1;
