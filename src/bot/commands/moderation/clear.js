@@ -10,7 +10,7 @@ module.exports = {
 		}
 
 		if (!messageObject.message.member.hasPermission('MANAGE_MESSAGES')) {
-			return messageObjectmessage.channel.send(
+			return messageObject.message.channel.send(
 				new Discord.MessageEmbed()
 					.setColor('AA0000')
 					.setDescription('You do not have the permission to do that')
@@ -19,13 +19,13 @@ module.exports = {
 
 		if (!messageObject.args[0]) return messageObject.message.channel.send('Please enter an integer');
 
-		if (Number.isInteger(parseInt(args[0], 2))) {
-			var amount = parseInt(args[0], 2) + 1;
+		if (Number.isInteger(parseInt(messageObject.args[0], 2))) {
+			var amount = parseInt(messageObject.args[0], 2) + 1;
 
 			if (amount > 100)
 				return messageObject.message.channel.send('You can not remove more than 99 messages');
 
-			if (args[0] <= 0) {
+			if (messageObject.args[0] <= 0) {
 				return messageObject.message.channel.send("I can't delete 0 messages");
 			}
 

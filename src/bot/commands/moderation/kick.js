@@ -24,7 +24,7 @@ module.exports = {
             messageObject.message.mentions.members.first().kick(0);
             messageObject.message.channel.send(new Discord.MessageEmbed().setColor("ffd000").setDescription(`${messageObject.message.mentions.members.first().user.tag} has been kicked.`).setFooter(`By: ${messageObject.message.author.tag}`));
         } else {
-            messageObject.message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription(`${messageObject/message.mentions.members.first().user.tag} can not be kicked`).setFooter(`By: ${messageObject.message.author.tag}`));
+            messageObject.message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription(`${messageObject.message.mentions.members.first().user.tag} can not be kicked`).setFooter(`By: ${messageObject.message.author.tag}`));
         }
     }
 }

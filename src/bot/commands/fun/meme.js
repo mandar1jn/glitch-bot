@@ -10,7 +10,7 @@ module.exports = {
             return;
         }
 
-        if(!messageObject.message.channel.nsfw) return return messageObject.message.channel.send("You have to use this command in an nsfw channel")
+        if(!messageObject.message.channel.nsfw) return messageObject.message.channel.send("You have to use this command in an nsfw channel")
 
         const subReddits = ["meme", "me_irl", "crappydesign", "technicallythetruth", "ComedyCemetery", "dankmemes", "PrequelMemes", "terriblefacebookmemes", "PewdiepieSubmissions", "funny"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];

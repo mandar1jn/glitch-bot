@@ -16,8 +16,8 @@ module.exports = {
             .setTitle(`🏓 Pong!`)
             .addField("Latency", `${Math.floor(msg.createdTimestamp - messageObject.message.createdTimestamp)}ms`)
 
-        return messageObject.message.channel.send(pingEmbed);
+        messageObject.message.channel.send(pingEmbed);
 
-        msg.delete();
+        return msg.delete();
     }
 }
