@@ -16,7 +16,6 @@ module.exports = {
             .addField("Max RAM", `${maxRAM} MB`)
             .addField("Development Team", "Glitched Development")
 
-        if(!permissions.clientPermissions.send_message) return;
-        messageObject.message.channel.send(infoEmbed);
+        return messageObject.message.channel.send(infoEmbed);
     } 
 }

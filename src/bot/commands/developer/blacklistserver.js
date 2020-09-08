@@ -14,7 +14,7 @@ module.exports = {
 
         if (!messageObject.args[0]) return messageObject.message.channel.send("Please also specify a id for the guild that you want to blacklist");
 
-        blacklistedservers[args[0]] = true;
+        blacklistedservers[messageObject.args[0]] = true;
 
         fs.writeFile(path.resolve(`src/bot/databases/blacklistedservers.json`), JSON.stringify(blacklistedservers));
         

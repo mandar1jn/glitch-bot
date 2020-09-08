@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const path = require("path");
+const fs = require('fs');
 const canvas = require("canvas");
 
 module.exports = {

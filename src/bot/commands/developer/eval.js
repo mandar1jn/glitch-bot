@@ -13,7 +13,7 @@ module.exports = {
             return messageObject.message.channel.send('You are not a developer of this bot');
         }
 
-        var command = args.join(' ');
+        var command = messageObject.args.join(' ');
         messageObject.message.channel.send(eval(command))
     }
 };

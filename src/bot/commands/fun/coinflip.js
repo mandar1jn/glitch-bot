@@ -9,7 +9,7 @@ module.exports = {
         let random = (Math.floor(Math.random() * Math.floor(2)));
 
         if(random === 0) {
-          return messageObjectmessage.channel.send('I flipped heads!');
+          return messageObject.message.channel.send('I flipped heads!');
         }
         else {
           return messageObject.message.channel.send('I flipped tails!');
