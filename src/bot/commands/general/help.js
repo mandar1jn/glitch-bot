@@ -25,19 +25,19 @@ module.exports = {
 
             };
 
-            if (item.category === "general" && args[0] === "1") {
+            if (item.category === "general" && messageObject.args[0] === "1") {
                 commandList.push(item);
             }
 
-            else if (item.category === "fun" && args[0] === "2") {
+            else if (item.category === "fun" && messageObject.args[0] === "2") {
                 commandList.push(item);
             }
 
-            else if (item.category === "moderation" && args[0] === "3") {
+            else if (item.category === "moderation" && messageObject.args[0] === "3") {
                 commandList.push(item);
             }
 
-            else if (item.category === "misc" && args[0] === "4") {
+            else if (item.category === "misc" && messageObject.args[0] === "4") {
                 commandList.push(item);
             }
 
@@ -46,19 +46,19 @@ module.exports = {
         var prefix = guild_info.prefix;
         var response = new Discord.MessageEmbed().setColor("ffd000")
 
-        if (args[0] === "1") {
+        if (messageObject.args[0] === "1") {
             response.setTitle("general")
         }
 
-        else if (args[0] === "2") {
+        else if (messageObject.args[0] === "2") {
             response.setTitle("fun")
         }
 
-        else if (args[0] === "3") {
+        else if (messageObject.args[0] === "3") {
             response.setTitle("admin")
         }
 
-        else if (args[0] === "4") {
+        else if (messageObject.args[0] === "4") {
             response.setTitle("misc")
         }
         else {

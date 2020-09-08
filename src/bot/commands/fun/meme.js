@@ -24,6 +24,6 @@ module.exports = {
             .setURL(`https://reddit.com/r/${random}`)
             .setFooter(`Requested by: ${messageObject.message.author.tag}`);
 
-        retrun messageObject.message.channel.send(embed);
+        return messageObject.message.channel.send(embed);
     }
 }
