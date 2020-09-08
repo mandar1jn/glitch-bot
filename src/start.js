@@ -4,9 +4,6 @@ require('dotenv').config();
 //requires path because it is needed to require other files in the project
 const path = require("path");
 
-//requires fs to be able to read and edit files
-const fs = require("fs")
-
 //requires the utils file to acces all utility functions
 const utils = require(path.resolve('src/utils.js'));
 

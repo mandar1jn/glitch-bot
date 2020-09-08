@@ -3,8 +3,6 @@ const fs = require('fs');
 const blacklistedservers = require(path.resolve('src/bot/databases/blacklistedservers.json'));
 const Discord = require('discord.js');
 
-var defaultJSON = '{}';
-
 module.exports = async (client, message) => {
 
     if (!message.guild) return;
