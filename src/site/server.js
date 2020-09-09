@@ -100,4 +100,10 @@ router.get('/dashboard/', (req, res) => {
 
 app.use('/', router);
 
+var RateLimit = require('express-rate-limit');
+var limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+
 module.exports = app;
