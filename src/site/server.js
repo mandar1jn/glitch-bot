@@ -105,5 +105,6 @@ var limiter = new RateLimit({
   windowMs: 1*60*1000, // 1 minute
   max: 5
 });
+app.use(limiter);
 
 module.exports = app;
