@@ -19,7 +19,7 @@ async function getUser(token) {
     let data = await response.json();
     setTimeout(3000);
     //verwijder data; als je er iets mee gaat doen
-    data;
+    console.log(data);
 
 }
 
@@ -37,19 +37,19 @@ app.use(session({
 
 
 router.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/routes/index.html'));
 });
 
 router.get('/home/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/routes/index.html'));
 });
 
 router.get('/about/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/about.html'));
+    res.sendFile(path.join(__dirname + '/routes/about.html'));
 });
 
 router.get('/discord/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/discord.html'));
+    res.sendFile(path.join(__dirname + '/routes/discord.html'));
 });
 
 router.get('/stats/', (req, res) => {
@@ -86,8 +86,8 @@ router.get('/dashboard/', (req, res) => {
 
         response = getUser(req.session.token);
         //verwijder response; als je er iets mee gaat doen
-        response;
-        res.sendFile(path.join(__dirname + '/dashboard.html'));
+        console.log(response);
+        res.sendFile(path.join(__dirname + '/routes/dashboard.html'));
 
 
 

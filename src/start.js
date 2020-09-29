@@ -27,7 +27,7 @@ manager.spawn();
 //starts the website
 
 //requires the server file
-//const server = require(path.resolve('src/site/server.js'));
+const server = require(path.resolve('src/site/server.js'));
 
 //starts the server
-//server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || 8080);
