@@ -1,24 +1,24 @@
 module.exports = {
     disconnect: () => {
-        console.warn('Disconnected!', '\n');
+        console.warn("Disconnected!", "\n");
     },
     reconnecting: () => {
-        console.log("Bot reconnecting...", '\n');
+        console.log("Bot reconnecting...", "\n");
     },
     warn: (err) => {
-        console.warn('[WARNING]', err, '\n');
+        console.warn("[WARNING]", err, "\n");
     },
     error: (err) => {
-        console.error(err.message, '\n');
+        console.error(err.message, "\n");
     },
     DiscordAPIError: (err) => {
-        console.log('[DiscordAPIError]', err, '\n');
+        console.log("[DiscordAPIError]", err, "\n");
     },
     uncaughtException: (err) => {
         console.error(`[uncaughtException] ${err.stack}`, '\n');
         process.exit(1);
     },
     unhandledRejection: (err) => {
-        console.log('[unhandledRejection]', `Reason: ${err.stack}`, '\n');
+        console.log("[unhandledRejection]", `Reason: ${err.stack}`, "\n");
     },
 };

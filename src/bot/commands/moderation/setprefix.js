@@ -19,7 +19,7 @@ module.exports = {
         guild_info.prefix = messageObject.args[0];
 
         fs.writeFile(path.resolve(`src/bot/databases/guild info/${messageObject.message.guild.id}.json`), JSON.stringify(guild_info), function(err) {
-            if (err) console.log('error', err);
+            if (err) console.log("error", err);
         });
 
         return messageObject.message.channel.send(`I have changed the prefix to \`\`${messageObject.args[0]}\`\``);

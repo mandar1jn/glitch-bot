@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 const blacklistedservers = require(path.resolve(`src/bot/databases/blacklistedservers.json`));
 const developers = require(path.resolve(`src/bot/databases/developers.json`));
 const utils = require(path.resolve(`src/utils.js`));
@@ -14,7 +14,7 @@ module.exports = async (client, message) => {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
             "{}", function(err) {
-                if (err) console.log('error', err);
+                if (err) console.log("error", err);
             });
     }
 
@@ -23,7 +23,7 @@ module.exports = async (client, message) => {
         fs.writeFile(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
             JSON.stringify(blacklistedservers), function(err) {
-                if (err) console.log('error', err);
+                if (err) console.log("error", err);
             });
     }
 
@@ -31,7 +31,7 @@ module.exports = async (client, message) => {
 
     await utils.validateGuildData(guildID, guild_info);
 
-    client.emit('xp', client, message);
+    client.emit("xp", client, message);
 
     let prefix = guild_info.prefix;
 
@@ -44,7 +44,7 @@ module.exports = async (client, message) => {
         blacklistedservers[guildID] === true &&
         developers[guildID] !== true
     ) {
-        return message.channel.send('This server is blacklisted!');
+        return message.channel.send("This server is blacklisted!"");
     }
 
     client.emit("command", message, guild_info);

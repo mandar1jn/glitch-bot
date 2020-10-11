@@ -1,7 +1,7 @@
 const path = require("path")
-const fs = require('fs');
-const blacklistedservers = require(path.resolve('src/bot/databases/blacklistedservers.json'));
-const Discord = require('discord.js');
+const fs = require("fs");
+const blacklistedservers = require(path.resolve("src/bot/databases/blacklistedservers.json"));
+const Discord = require("discord.js");
 
 module.exports = async (client, message) => {
 
@@ -18,7 +18,7 @@ module.exports = async (client, message) => {
     fs.writeFile(
         path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
         JSON.stringify(guild_info), function(err) {
-            if (err) console.log('error', err);
+            if (err) console.log("error", err);
         });
 
     if (!blacklistedservers[message.guild.id]) {
@@ -26,7 +26,7 @@ module.exports = async (client, message) => {
         fs.writeFile(
             path.resolve(`src/bot/databases/blacklistedservers.json`),
             JSON.stringify(blacklistedservers), function(err) {
-                if (err) console.log('error', err);
+                if (err) console.log("error", err);
             });
     }
 
@@ -63,16 +63,16 @@ module.exports = async (client, message) => {
     if (nxtLvl <= xp[message.author.id].xp) {
         xp[message.author.id].level = curlvl + 1;
         let lvlup = new Discord.MessageEmbed()
-            .setTitle('Level Up!')
-            .setColor('ffd000')
-            .addField('New Level', curlvl + 1);
+            .setTitle("Level Up!"")
+            .setColor("ffd000")
+            .addField("New Level", curlvl + 1);
 
         message.channel.send(lvlup);
     }
     fs.writeFile(
         path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
         JSON.stringify(xp), function(err) {
-            if (err) console.log('error', err);
+            if (err) console.log("error", err);
         });
 
     if (!coins[message.author.id]) {
@@ -92,6 +92,6 @@ module.exports = async (client, message) => {
     fs.writeFile(
         path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`),
         JSON.stringify(coins), function(err) {
-            if (err) console.log('error', err);
+            if (err) console.log("error", err);
         });
 };

@@ -5,7 +5,7 @@ const ascii = require("ascii-table");
 
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status", "Category");
-const { Collection } = require('discord.js');
+const { Collection } = require("discord.js");
 
 module.exports.registerCommands = (client) => {
     client.commands = new Collection();
@@ -18,7 +18,7 @@ module.exports.registerCommands = (client) => {
 
             if (pull.name) {
                 client.commands.set(pull.name, pull);
-                table.addRow(file, '✅', pull.category);
+                table.addRow(file, "✅", pull.category);
             } else {
                 table.addRow(file, `❌  -> missing a help.name, or help.name is not a string.`, pull.category);
                 continue;

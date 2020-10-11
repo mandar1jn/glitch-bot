@@ -1,8 +1,8 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports = {
-    name: 'info',
-    description: 'user information',
+    name: "info",
+    description: "user information",
     category: "general",
     run(client, messageObject) {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
@@ -16,12 +16,12 @@ module.exports = {
             .setTitle(`${user.username}`)
             .setColor("RANDOM")
             .setThumbnail(user.displayAvatarURL)
-            .addField('Username', user.username, true)
-            .addField('Nickname', member.username, true)
-            .addField('ID', user.id, true)
-            .addField('Account Created', user.createdAt.toDateString(), true)
-            .addField('Joined Server', member.joinedAt.toDateString(), true)
-            .setFooter('User Info', user.displayAvatarURL);
+            .addField("Username", user.username, true)
+            .addField("Nickname", member.username, true)
+            .addField("ID", user.id, true)
+            .addField("Account Created", user.createdAt.toDateString(), true)
+            .addField("Joined Server", member.joinedAt.toDateString(), true)
+            .setFooter("User Info", user.displayAvatarURL);
 
         return messageObject.message.channel.send(embed);
     },

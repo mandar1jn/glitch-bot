@@ -1,7 +1,7 @@
 //requires fs to be able to read and acces files
-const fs = require('fs');
+const fs = require("fs");
 //requires path to easily find the path in the project
-const path = require('path');
+const path = require("path");
 
 const defaultguildinfo = require(path.resolve(`src/bot/databases/defaultguildinfo.json`));
 
@@ -43,7 +43,9 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/guild info/${guildID}.json`),
             JSON.stringify(defaultguildinfo), function(err) {
-                if (err) console.log('error', err);
+                if (err) {
+                    console.log("error", err);
+                }
             });
     }
 
@@ -51,7 +53,9 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/xp/xp-${guildID}.json`),
             "{}", function(err) {
-                if (err) console.log('error', err);
+                if (err) {
+                    console.log("error", err);
+                }
             });
     }
 
@@ -59,7 +63,9 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/coins/coins-${guildID}.json`),
             "{}", function(err) {
-                if (err) console.log('error', err);
+                if (err) {
+                    console.log("error", err);
+                }
             });
     }
 
@@ -72,6 +78,8 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
     fs.writeFile(
         path.resolve(`src/bot/databases/guild info/${guildID}.json`),
         JSON.stringify(guild_info), function(err) {
-            if (err) console.log('error', err);
+            if (err) {
+                console.log("error", err);
+            }
         });
 }

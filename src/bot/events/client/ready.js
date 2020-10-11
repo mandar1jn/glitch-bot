@@ -3,16 +3,16 @@ var shardid = null;
 
 module.exports = async (client) => {
     shardid = parseInt(client.shard.ids) + 1;
-    client.user.setActivity('Use gb!help for help', { type: 'WATCHING' });
+    client.user.setActivity("Use gb!help for help", { type: "WATCHING" });
     statusnumber = 0;
     setInterval(() => {
         if (statusnumber === 0) {
-            client.user.setActivity('Use gb!help for help', { type: 'WATCHING' });
+            client.user.setActivity("people use gb!help for help", { type: "WATCHING" });
             statusnumber = 1;
         } else if (statusnumber === 1) {
             client.user.setActivity(
                 `${client.guilds.cache.size} servers using my features`,
-                { type: 'WATCHING' }
+                { type: "WATCHING" }
             );
             statusnumber = 2;
         }
