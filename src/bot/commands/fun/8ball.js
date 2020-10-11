@@ -26,7 +26,7 @@ module.exports = {
             "Better not tell you now.",
             "Cannot predict now.",
             "Concentrate and ask again.",
-            "Don\'t count on it.",
+            "Don't count on it.",
             "My reply is no.",
             "My sources say no.",
             "Outlook not so good.",
@@ -37,8 +37,8 @@ module.exports = {
             "No.",
             "Depends on the mood of the CS god",
             "Hang on",
-            "It\'s over",
-            "It\'s just the beginning",
+            "It's over",
+            "It's just the beginning",
             "Good Luck",
             ];
             let index = (Math.floor(Math.random() * Math.floor(eightball.length)));
