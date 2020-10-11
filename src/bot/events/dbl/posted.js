@@ -1,3 +1,3 @@
-module.exports = () => {
-    console.log('Server count posted!');
-}
+module.exports = async () => {
+    console.log("Server count posted!");
+};
