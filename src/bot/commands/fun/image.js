@@ -13,7 +13,7 @@ module.exports = {
 
         imageSearch(messageObject.message, image)
     }
-}
+};
 
 
 function imageSearch(message, image) {

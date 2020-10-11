@@ -1,6 +1,10 @@
 const Discord = require("discord.js");
 const path = require("path");
 const fs = require("fs");
+const defaultCoins = {
+    coins: 0,
+    volgende_munt: 5
+}
 
 module.exports = {
     name: "coins",
@@ -15,10 +19,7 @@ module.exports = {
         let coins = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`)));
         if (!coins[authorID]) {
             if (!coins[authorID]) {
-                coins[authorID] = {
-                    coins: 0,
-                    volgende_munt: 5
-                };
+                coins[authorID] = defaultCoins;
             }
         }
 
@@ -28,6 +29,6 @@ module.exports = {
             .addField("Coins", coins[authorID].coins, true)
             .setFooter(`You still have to send ${coins[authorID].volgende_munt} more message(s) to get your next coin`, messageObject.message.author.displayAvatarURL);
 
-        messageObject.message.channel.send(coinsEmbed)
+        messageObject.message.channel.send(coinsEmbed);
     }
 }
