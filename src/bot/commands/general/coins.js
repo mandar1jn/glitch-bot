@@ -11,7 +11,7 @@ module.exports = {
         }
         let guildID = messageObject.message.guild.id;
         let authorID = messageObject.message.author.id;
-        let coins = require(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`));
+        let coins = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`)));
         if (!coins[authorID]) {
             if (!coins[authorID]) {
                 coins[authorID] = {
