@@ -7,7 +7,7 @@ module.exports = {
             return;
         }
         if(!messageObject.args[0]) {
-            messageObject.message.channel.send("Please ask me a question."");
+            messageObject.message.channel.send("Please ask me a question.");
           }
           else {
             let eightball = [
