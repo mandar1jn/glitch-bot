@@ -45,7 +45,7 @@ fs.readdir(path.resolve('src/bot/events/dbl-webhook/'), (err, files) => {
 
 module.exports.registerManagerEvents = async (manager) => {
     fs.readdir(path.resolve('src/bot/events/manager/'), (err, files) => {
-    files.forEach(file => {
+    files.forEach((file) => {
         if (!file.endsWith('.js')) return;
         const event = require(path.resolve(`src/bot/events/manager/${file}`));
         let eventName = file.split('.')[0];
