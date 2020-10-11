@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-module.exports.registerClientEvents = async (client) => {
+module.exports.registerEvents = async (client) => {
     fs.readdir(path.resolve("src/bot/events/client/"), (err, files) => {
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
