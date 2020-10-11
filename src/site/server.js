@@ -72,7 +72,7 @@ router.get('/dashboard/callback', (req, res) => {
     fetch('https://discordapp.com/api/oauth2/token', {
         method: 'POST',
         body: data,
-    }).then(res => res.json()).then(data => {
+    }).then((res) => res.json()).then(data => {
         req.session.loggedin = true
         auth = data
         req.session.token = auth['access_token']

@@ -5,13 +5,13 @@ const ascii = require("ascii-table");
 
 let table = new ascii("Commands");
 table.setHeading("Command", "Load status", "Category");
-const {Collection} = require('discord.js');
+const { Collection } = require('discord.js');
 
 module.exports.registerCommands = (client) => {
     client.commands = new Collection();
-client.aliases = new Collection();
-    readdirSync(path.resolve("src/bot/commands/")).forEach(dir => {
-        const commands = readdirSync(path.resolve(`src/bot/commands/${dir}/`)).filter(file => file.endsWith(".js"));
+    client.aliases = new Collection();
+    readdirSync(path.resolve("src/bot/commands/")).forEach((dir) => {
+        const commands = readdirSync(path.resolve(`src/bot/commands/${dir}/`)).filter((file) => file.endsWith(".js"));
 
         for (let file of commands) {
             let pull = require(path.resolve(`src/bot/commands/${dir}/${file}`));
@@ -24,7 +24,7 @@ client.aliases = new Collection();
                 continue;
             }
 
-            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach(alias => client.aliases.set(alias, pull.name));
+            if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));
         }
     });
 }

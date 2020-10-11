@@ -5,7 +5,7 @@ module.exports = {
     name: "coins",
     description: "shows your coins",
     category: "general",
-    run: async (client, messageObject)=> {
+    run: async (client, messageObject) => {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
