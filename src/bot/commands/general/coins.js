@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
-const path = require("path")
+const path = require("path");
+const fs = require("fs");
 
 module.exports = {
     name: "coins",
