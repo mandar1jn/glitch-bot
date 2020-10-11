@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-module.exports.registerEvents = async (client, dbl) => {
+module.exports.registerClientEvents = async (client) => {
     fs.readdir(path.resolve("src/bot/events/client/"), (err, files) => {
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
@@ -10,7 +10,8 @@ module.exports.registerEvents = async (client, dbl) => {
         client.on(eventName, event.bind(null, client));
         delete require.cache[require.resolve(path.resolve(`src/bot/events/client/${file}`))];
     });
-});
+})
+
 
 fs.readdir(path.resolve("src/bot/events/process/"), (err, files) => {
     files.forEach((file) => {
@@ -19,6 +20,16 @@ fs.readdir(path.resolve("src/bot/events/process/"), (err, files) => {
         let eventName = file.split("."")[0];
         process.on(eventName, event.bind(null, process));
         delete require.cache[require.resolve(path.resolve(`src/bot/events/process/${file}`))];
+    });
+});
+
+    fs.readdir(path.resolve("src/bot/events/client/"), (err, files) => {
+    files.forEach((file) => {
+        if (!file.endsWith(".js")) return;
+        const event = require(path.resolve(`src/bot/events/client/${file}`));
+        let eventName = file.split(".")[0];
+        client.on(eventName, event.bind(null, client));
+        delete require.cache[require.resolve(path.resolve(`src/bot/events/client/${file}`))];
     });
 });
 
