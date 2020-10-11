@@ -44,7 +44,7 @@ module.exports = async (client, message) => {
         blacklistedservers[guildID] === true &&
         developers[guildID] !== true
     ) {
-        return message.channel.send("This server is blacklisted!"");
+        return message.channel.send("This server is blacklisted!");
     }
 
     client.emit("command", message, guild_info);

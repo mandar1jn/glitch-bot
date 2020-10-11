@@ -63,7 +63,7 @@ module.exports = async (client, message) => {
     if (nxtLvl <= xp[message.author.id].xp) {
         xp[message.author.id].level = curlvl + 1;
         let lvlup = new Discord.MessageEmbed()
-            .setTitle("Level Up!"")
+            .setTitle("Level Up!")
             .setColor("ffd000")
             .addField("New Level", curlvl + 1);
 
