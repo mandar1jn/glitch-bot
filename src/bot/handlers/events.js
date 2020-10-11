@@ -6,7 +6,7 @@ module.exports.registerEvents = async (client, dbl) => {
     files.forEach((file) => {
         if (!file.endsWith(".js")) return;
         const event = require(path.resolve(`src/bot/events/client/${file}`));
-        let eventName = file.split("."")[0];
+        let eventName = file.split(".")[0];
         client.on(eventName, event.bind(null, client));
         delete require.cache[require.resolve(path.resolve(`src/bot/events/client/${file}`))];
     });
