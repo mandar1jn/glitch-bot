@@ -47,5 +47,5 @@ module.exports = async (client, message) => {
         return message.channel.send("This server is blacklisted!");
     }
 
-    client.emit("command", message, guild_info);
+    return client.emit("command", message, guild_info);
 }

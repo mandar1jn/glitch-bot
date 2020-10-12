@@ -19,7 +19,7 @@ module.exports = {
 
         client.commands.forEach((command) => {
 
-            var item = {
+            let item = {
 
                 name: command.name,
                 description: command.description,
@@ -27,26 +27,32 @@ module.exports = {
 
             };
 
-            if (item.category === "general" && messageObject.args[0] === "1") {
-                commandList.push(item);
-            }
-
-            else if (item.category === "fun" && messageObject.args[0] === "2") {
-                commandList.push(item);
-            }
-
-            else if (item.category === "moderation" && messageObject.args[0] === "3") {
-                commandList.push(item);
-            }
-
-            else if (item.category === "misc" && messageObject.args[0] === "4") {
-                commandList.push(item);
-            }
-
+            switch(item.category){
+                case "general":
+                    if(messageObject.args[0] === "1"){
+                        commandList.push(item);
+                    }
+                    break;
+                case "fun":
+                    if(messageObject.args[0] === "2"){
+                        commandList.push(item);
+                    }
+                    break;
+                case "moderation":
+                    if(messageObject.args[0] === "3"){
+                        commandList.push(item);
+                    }
+                    break;
+                case "misc":
+                    if(messageObject.args[0] === "4"){
+                        commandList.push(item);
+                    }
+                    break;
+            };
         });
 
-        var prefix = guild_info.prefix;
-        var response = new Discord.MessageEmbed().setColor("ffd000")
+        let prefix = guild_info.prefix;
+        let response = new Discord.MessageEmbed().setColor("ffd000")
 
         if (messageObject.args[0] === "1") {
             response.setTitle("general")

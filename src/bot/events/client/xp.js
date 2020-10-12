@@ -72,7 +72,9 @@ module.exports = async (client, message) => {
     fs.writeFile(
         path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`),
         JSON.stringify(xp), function(err) {
-            if (err) console.log("error", err);
+            if (err) {
+                console.log("error", err);
+            }
         });
 
     if (!coins[message.author.id]) {
@@ -89,7 +91,7 @@ module.exports = async (client, message) => {
         coins[message.author.id].volgende_munt += 5;
     }
 
-    fs.writeFile(
+    return fs.writeFile(
         path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`),
         JSON.stringify(coins), function(err) {
             if (err) console.log("error", err);

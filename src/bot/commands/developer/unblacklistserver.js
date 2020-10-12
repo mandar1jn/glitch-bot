@@ -1,6 +1,6 @@
 const path = require("path");
-const developers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/developers.json")));
 const fs = require("fs");
+const developers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/developers.json")));
 const blacklistedservers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/blacklistedservers.json")));
 
 module.exports = {
@@ -21,5 +21,5 @@ module.exports = {
         fs.writeFile(path.resolve("src/bot/databases/blacklistedservers.json"), JSON.stringify(blacklistedservers)
         );
         messageObject.message.channel.send("I have unblacklisted the server")
-    };
+    }
 };
