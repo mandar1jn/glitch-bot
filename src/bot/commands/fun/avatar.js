@@ -1,5 +1,4 @@
 const Discord = require("discord.js");
-var mentionedUser = null;
 
 module.exports = {
 	name: "avatar",
@@ -18,7 +17,7 @@ module.exports = {
 				);
 			return messageObject.message.channel.send(avatarEmbed);
 		}
-		mentionedUser = messageObject.message.mentions.members.first().user;
+		let mentionedUser = messageObject.message.mentions.members.first().user;
 		const avatarEmbed = new Discord.MessageEmbed()
 			.setTitle("Avatar of: " + mentionedUser.tag)
 			.setColor("ffd000")
@@ -28,4 +27,4 @@ module.exports = {
 			.setFooter(`Requested by: ${messageObject.message.author.tag}`);
 		return messageObject.message.channel.send(avatarEmbed);
 	}
-};
+}
