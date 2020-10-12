@@ -6,7 +6,7 @@ module.exports = async (client, message, guild_info) => {
         .split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
-    if (cmd.length === 0) return;
+    if (cmd.length < 1) return;
 
     let command = client.commands.get(cmd);
     if (!command) {
