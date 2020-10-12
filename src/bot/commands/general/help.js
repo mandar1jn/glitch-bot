@@ -20,11 +20,9 @@ module.exports = {
         client.commands.forEach((command) => {
 
             let item = {
-
                 name: command.name,
                 description: command.description,
                 category: command.category
-
             };
 
             switch(item.category){
@@ -70,10 +68,10 @@ module.exports = {
 
         for (var i = 0; i < commandList.length; i++) {
 
-            response.addField(`${prefix}${commandList[i]["name"]}`, `${commandList[i]["description"]}`)
+            response.addField(`${prefix}${commandList[i]["name"]}`, `${commandList[i]["description"]}`);
 
         }
 
         return messageObject.message.channel.send(response);
     }
-}
+};
