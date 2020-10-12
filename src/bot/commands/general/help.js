@@ -48,26 +48,24 @@ module.exports = {
                         commandList.push(item);
                     }
                     break;
-            };
+            }
         });
 
         let prefix = guild_info.prefix;
-        let response = new Discord.MessageEmbed().setColor("ffd000")
+        let response = new Discord.MessageEmbed().setColor("ffd000");
 
-        if (messageObject.args[0] === "1") {
-            response.setTitle("general")
-        }
-
-        else if (messageObject.args[0] === "2") {
-            response.setTitle("fun")
-        }
-
-        else if (messageObject.args[0] === "3") {
-            response.setTitle("admin")
-        }
-
-        else if (messageObject.args[0] === "4") {
-            response.setTitle("misc")
+        switch(messageObject.args[0]){
+            case "1":
+                response.setTitle("general");
+                break;
+            case "2":
+                response.setTitle("fun");
+                break;
+            case "3":
+                response.setTitle("admin");
+                break;
+            case "4":
+                response.setTitle("misc");
         }
 
         for (var i = 0; i < commandList.length; i++) {
