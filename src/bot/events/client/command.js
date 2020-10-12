@@ -9,7 +9,9 @@ module.exports = async (client, message, guild_info) => {
     if (cmd.length === 0) return;
 
     let command = client.commands.get(cmd);
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (!command) {
+        command = client.commands.get(client.aliases.get(cmd));
+    }
     
     if (command) {
         return command.run(client, {message, args});

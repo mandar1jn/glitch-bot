@@ -69,9 +69,6 @@ module.exports = {
         else if (messageObject.args[0] === "4") {
             response.setTitle("misc")
         }
-        else {
-            return messageObject.message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
-        }
 
         for (var i = 0; i < commandList.length; i++) {
 
