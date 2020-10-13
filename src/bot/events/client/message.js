@@ -33,7 +33,7 @@ module.exports = async (client, message) => {
             });
     }
 
-    let guild_info = require(path.resolve(`src/bot/databases/guild info/${guildID}.json`));
+    let guild_info = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)));
 
     await utils.validateGuildData(guildID, guild_info);
 

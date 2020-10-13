@@ -10,7 +10,7 @@ module.exports = {
             return;
         }
 
-        const guild_info = require(path.resolve(`src/bot/databases/guild info/${messageObject.message.guild.id}.json`));
+        const guild_info = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/guild info/${messageObject.message.guild.id}.json`)));
 
         if (!messageObject.message.member.hasPermission("MANAGE_GUILD")) {
             return messageObject.message.channel.send("Sorry, but you don't have the permission to do that");

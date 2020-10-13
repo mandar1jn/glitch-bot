@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const blacklistedservers = require(path.resolve("src/bot/databases/blacklistedservers.json"));
+const blacklistedservers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/blacklistedservers.json")));
 const Discord = require("discord.js");
 
 module.exports = async (client, message) => {
@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
         return;
     }
 
-    let guild_info = require(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`));
+    let guild_info = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`)));
 
     if (!guild_info.prefix) {
         guild_info = {
@@ -44,8 +44,8 @@ module.exports = async (client, message) => {
         message.channel.send(`The prefix for this server is **${guild_info.prefix}**. Do **${guild_info.prefix}help** for info about all of my commands`);
     }
 
-    let xp = require(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`));
-    let coins = require(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`));
+    let xp = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/xp/xp-${message.guild.id}.json`)));
+    let coins = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`)));
 
     let prefix = guild_info.prefix;
 

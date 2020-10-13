@@ -3,7 +3,7 @@ const fs = require("fs");
 //requires path to easily find the path in the project
 const path = require("path");
 
-const defaultguildinfo = require(path.resolve("src/bot/databases/defaultguildinfo.json"));
+const defaultguildinfo = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/defaultguildinfo.json")));
 
 
 module.exports.validateDataFolders = async () => {

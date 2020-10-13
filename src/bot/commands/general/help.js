@@ -1,4 +1,6 @@
 const Discord = require("discord.js");
+const fs = require("fs");
+const path = require("path");
 
 module.exports = {
     name: "help",
@@ -9,7 +11,7 @@ module.exports = {
             return;
         }
 
-        const guild_info = require(`../../databases/guild info/${messageObject.message.guild.id}.json`);
+        const guild_info = JSON.parse(fs.readFileSync(path.resolve(`src/bot/databases/guild info/${messageObject.message.guild.id}.json`)));
 
         var commandList = [];
 
