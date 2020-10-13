@@ -6,9 +6,9 @@ const exphbs = require("express-handlebars");
 const router = express.Router();
 const session = require("express-session");
 const FormData = require("form-data");
+const {sleep} = require(path.resolve("src/utils.js"));
 
 const data = new FormData();
-var auth = null;
 var response = null;
 
 async function getUser(token) {
@@ -17,7 +17,7 @@ async function getUser(token) {
         headers: {"Authorization": `Bearer ${token}` }
     });
     let data = await response.json();
-    setTimeout(3000);
+    await sleep(3000);
     //verwijder data; als je er iets mee gaat doen
     console.log(data);
 
@@ -74,7 +74,7 @@ router.get("/dashboard/callback", (req, res) => {
         body: data,
     }).then((res) => res.json()).then((data) => {
         req.session.loggedin = true
-        auth = data
+        let auth = data;
         req.session.token = auth["access_token"]
 
         res.redirect("/dashboard")
