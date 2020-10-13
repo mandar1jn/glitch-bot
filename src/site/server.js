@@ -25,6 +25,13 @@ async function getUser(token) {
 
 app.use(express.static(__dirname + "/public"));
 
+var RateLimit = require("express-rate-limit");
+var limiter = new RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 5
+});
+app.use(limiter);
+
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
@@ -98,12 +105,5 @@ router.get("/dashboard/", (req, res) => {
 });
 
 app.use("/", router);
-
-var RateLimit = require("express-rate-limit");
-var limiter = new RateLimit({
-  windowMs: 1*60*1000, // 1 minute
-  max: 5
-});
-app.use(limiter);
 
 module.exports = app;
