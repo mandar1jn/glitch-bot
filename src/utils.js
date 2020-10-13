@@ -23,7 +23,7 @@ module.exports.validateDataFolders = async () => {
                 if (e) {
                     console.log("something went wrong while creating a directory: " + e);
                 }
-            })
+            });
         }
         console.log("xp has been validated.");
 

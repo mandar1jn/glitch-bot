@@ -31,4 +31,4 @@ module.exports = {
 
         messageObject.message.channel.send(coinsEmbed);
     }
-}
+};
