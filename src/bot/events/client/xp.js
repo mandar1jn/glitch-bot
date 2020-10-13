@@ -104,6 +104,8 @@ module.exports = async (client, message) => {
     return fs.writeFile(
         path.resolve(`src/bot/databases/coins/coins-${message.guild.id}.json`),
         JSON.stringify(coins), function(err) {
-            if (err) console.log("error", err);
+            if (err) {
+                console.log("error", err);
+            }
         });
 };
