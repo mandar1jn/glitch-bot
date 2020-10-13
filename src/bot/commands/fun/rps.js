@@ -7,7 +7,7 @@ module.exports = {
             return;
         }
 
-        if (!messageObject.args[0]) return messageObject.message.channel.send("Use: .rps <rock|paper|scissor>");
+        if (!messageObject.args[0]) return messageObject.message.channel.send("Use: .rps [rock|paper|scissor]");
 
         var options = ["rock", "paper", "scissor"];
 
