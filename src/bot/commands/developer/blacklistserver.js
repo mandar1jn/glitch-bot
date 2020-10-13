@@ -12,7 +12,9 @@ module.exports = {
             return messageObject.message.channel.send("You are not a developer of this bot");
         }
 
-        if (!messageObject.args[0]) return messageObject.message.channel.send("Please also specify a id for the guild that you want to blacklist");
+        if (!messageObject.args[0]) {
+            return messageObject.message.channel.send("Please also specify a id for the guild that you want to blacklist");
+        }
 
         blacklistedservers[messageObject.args[0]] = true;
 

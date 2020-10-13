@@ -6,7 +6,9 @@ const utils = require(path.resolve("src/utils.js"));
 
 
 module.exports = async (client, message) => {
-    if (!message.guild || !message.member) return;
+    if (!message.guild || !message.member) {
+        return;
+    }
 
     let guildID = message.guild.id;
 
@@ -39,7 +41,10 @@ module.exports = async (client, message) => {
 
     let prefix = guild_info.prefix;
 
-    if (message.author.bot || !message.content.toLowerCase().startsWith(prefix.toLowerCase())) return;
+    if (message.author.bot || !message.content.toLowerCase().startsWith(prefix.toLowerCase())) {
+        return;
+    }
+
     if (!message.member){
         message.member = await message.guild.fetchMember(message);
     }  

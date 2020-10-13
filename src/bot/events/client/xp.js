@@ -5,7 +5,9 @@ const Discord = require("discord.js");
 
 module.exports = async (client, message) => {
 
-    if (!message.guild) return;
+    if (!message.guild) {
+        return;
+    }
 
     let guild_info = require(path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`));
 
@@ -18,7 +20,9 @@ module.exports = async (client, message) => {
     fs.writeFile(
         path.resolve(`src/bot/databases/guild info/${message.guild.id}.json`),
         JSON.stringify(guild_info), function(err) {
-            if (err) console.log("error", err);
+            if (err) {
+                console.log("error", err);
+            }
         });
 
     if (!blacklistedservers[message.guild.id]) {
@@ -43,9 +47,13 @@ module.exports = async (client, message) => {
 
     let prefix = guild_info.prefix;
 
-    if (message.author.bot) return;
+    if (message.author.bot) {
+        return;
+    }
 
-    if (message.content.startsWith(prefix)) return;
+    if (message.content.startsWith(prefix)) {
+        return;
+    }
 
     let xpAdd = Math.floor(Math.random() * 7) + 8;
 

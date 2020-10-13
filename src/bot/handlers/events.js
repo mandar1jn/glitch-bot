@@ -20,7 +20,10 @@ module.exports.registerEvents = async (client, dbl) => {
 
 	fs.readdir(path.resolve("src/bot/events/process/"), (err, files) => {
 		files.forEach((file) => {
-			if (!file.endsWith(".js")) return;
+			if (!file.endsWith(".js")) {
+                return;
+            }
+            
 			const event = require(path.resolve(
 				`src/bot/events/process/${file}`
 			));

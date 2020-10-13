@@ -17,13 +17,16 @@ module.exports = {
 			);
 		}
 
-		if (!messageObject.args[0]) return messageObject.message.channel.send("Please enter an integer");
+		if (!messageObject.args[0]) {
+            return messageObject.message.channel.send("Please enter an integer");
+        }
 
 		if (Number.isInteger(parseInt(messageObject.args[0], 2))) {
 			var amount = parseInt(messageObject.args[0], 2) + 1;
 
-			if (amount > 100)
+			if (amount > 100) {
 				return messageObject.message.channel.send("You can not remove more than 99 messages");
+            }
 
 			if (messageObject.args[0] <= 0) {
 				return messageObject.message.channel.send("I can't delete 0 messages");
