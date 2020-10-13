@@ -8,7 +8,7 @@ module.exports = {
     description: "blacklists a server",
     category: "developer",
     run: async (client, messageObject) => {
-        if (!developers[messageObject.message.author.id] == true && !developers[messageObject.message.author.id]) {
+        if (!developers[messageObject.message.author.id] === true && !developers[messageObject.message.author.id]) {
             return messageObject.message.channel.send("You are not a developer of this bot");
         }
 

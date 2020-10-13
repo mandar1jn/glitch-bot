@@ -10,7 +10,7 @@ module.exports = async (client, message) => {
 
     let guildID = message.guild.id;
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) != true) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) !== true) {
         fs.writeFileSync(
             path.resolve("src/bot/databases/blacklistedservers.json"),
             "{}", function(err) {

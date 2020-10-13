@@ -39,7 +39,7 @@ module.exports.validateDataFolders = async () => {
 };
 
 module.exports.validateGuildData = async (guildID, guild_info) => {
-    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) != true) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) !== true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/guild info/${guildID}.json`),
             JSON.stringify(defaultguildinfo), function(err) {
@@ -49,7 +49,7 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
             });
     }
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/xp/xp-${guildID}.json`)) != true) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/xp/xp-${guildID}.json`)) !== true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/xp/xp-${guildID}.json`),
             "{}", function(err) {
@@ -59,7 +59,7 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
             });
     }
 
-    if (fs.existsSync(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`)) != true) {
+    if (fs.existsSync(path.resolve(`src/bot/databases/coins/coins-${guildID}.json`)) !== true) {
         fs.writeFileSync(
             path.resolve(`src/bot/databases/coins/coins-${guildID}.json`),
             "{}", function(err) {
@@ -69,7 +69,7 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
             });
     }
 
-    if (guild_info.prefix == null) {
+    if (guild_info.prefix === null) {
         guild_info = {
             prefix: process.env.PREFIX
         };
