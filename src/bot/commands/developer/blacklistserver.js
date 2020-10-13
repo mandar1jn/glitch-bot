@@ -20,4 +20,4 @@ module.exports = {
         
         return messageObject.message.channel.send("I have blacklisted the server")
     }
-}
+};
