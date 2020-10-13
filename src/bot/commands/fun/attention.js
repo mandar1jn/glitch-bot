@@ -12,4 +12,4 @@ module.exports = {
 
         messageObject.message.channel.send(`${messageObject.message.mentions.members.first()}, <@${messageObject.message.author.id}> wants your attention! https://media.giphy.com/media/gFnhVBgvn3epTNoF6F/giphy.gif`);
     }
-}
+};
