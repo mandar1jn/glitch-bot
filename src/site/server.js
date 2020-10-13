@@ -6,7 +6,6 @@ const exphbs = require("express-handlebars");
 const router = express.Router();
 const session = require("express-session");
 const FormData = require("form-data");
-const {sleep} = require(path.resolve("src/utils.js"));
 
 const data = new FormData();
 var response = null;
@@ -17,7 +16,7 @@ async function getUser(token) {
         headers: {"Authorization": `Bearer ${token}` }
     });
     let data = await response.json();
-    await sleep(3000);
+    setTimeout(3000);
     //verwijder data; als je er iets mee gaat doen
     console.log(data);
 

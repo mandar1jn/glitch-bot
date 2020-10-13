@@ -82,10 +82,4 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
                 console.log("error", err);
             }
         });
-}
-
-module.exports.sleep = (ms) => {
-  return new Promise(
-    resolve => setTimeout(resolve, ms)
-  );
-}
+};
