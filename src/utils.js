@@ -33,7 +33,7 @@ module.exports.validateDataFolders = async () => {
                 if (e) {
                     console.log("something went wrong while creating a directory: " + e);
                 }
-            })
+            });
         }
         console.log("coins has been validated.");
 };
