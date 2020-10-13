@@ -11,7 +11,7 @@ module.exports = {
     error: (err) => {
         console.error(err.message, "\n");
     },
-    DiscordAPIError: (err) => {
+    discordAPIError: (err) => {
         console.log("[DiscordAPIError]", err, "\n");
     },
     uncaughtException: (err) => {

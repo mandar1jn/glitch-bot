@@ -3,7 +3,7 @@ const path = require("path");
 const fetch = require("node-fetch");
 const app = express();
 const exphbs = require("express-handlebars");
-const router = express.Router();
+const router = new express.Router();
 const session = require("express-session");
 const FormData = require("form-data");
 
