@@ -20,6 +20,6 @@ module.exports = {
 
         fs.writeFile(path.resolve("src/bot/databases/blacklistedservers.json"), JSON.stringify(blacklistedservers)
         );
-        messageObject.message.channel.send("I have unblacklisted the server")
+        messageObject.message.channel.send("I have unblacklisted the server");
     }
 };

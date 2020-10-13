@@ -27,4 +27,4 @@ module.exports = {
 			.setFooter(`Requested by: ${messageObject.message.author.tag}`);
 		return messageObject.message.channel.send(avatarEmbed);
 	}
-}
+};

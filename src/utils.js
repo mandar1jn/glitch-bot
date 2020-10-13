@@ -3,7 +3,7 @@ const fs = require("fs");
 //requires path to easily find the path in the project
 const path = require("path");
 
-const defaultguildinfo = require(path.resolve(`src/bot/databases/defaultguildinfo.json`));
+const defaultguildinfo = require(path.resolve("src/bot/databases/defaultguildinfo.json"));
 
 
 module.exports.validateDataFolders = async () => {
@@ -15,7 +15,7 @@ module.exports.validateDataFolders = async () => {
                 }
             })
         }
-        console.log("guild info has been validated.")
+        console.log("guild info has been validated.");
 
         //validates the xp database folder
         if (!fs.existsSync(path.resolve("src/bot/databases/xp/"))) {
@@ -25,7 +25,7 @@ module.exports.validateDataFolders = async () => {
                 }
             })
         }
-        console.log("xp has been validated.")
+        console.log("xp has been validated.");
 
         //validates the coins database folder
         if (!fs.existsSync(path.resolve("src/bot/databases/coins/"))) {
@@ -35,7 +35,7 @@ module.exports.validateDataFolders = async () => {
                 }
             })
         }
-        console.log("coins has been validated.")
+        console.log("coins has been validated.");
 }
 
 module.exports.validateGuildData = async (guildID, guild_info) => {

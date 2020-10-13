@@ -1,12 +1,14 @@
 module.exports = async (client, message, guild_info) => {
-    let prefix = guild_info.prefix
+    let prefix = guild_info.prefix;
     const args = message.content
         .slice(prefix.length)
         .trim()
         .split(/ +/g);
     const cmd = args.shift().toLowerCase();
 
-    if (cmd.length < 1) return;
+    if (cmd.length < 1) {
+        return;
+    }
 
     let command = client.commands.get(cmd);
     if (!command) {
@@ -16,4 +18,4 @@ module.exports = async (client, message, guild_info) => {
     if (command) {
         return command.run(client, {message, args});
     }
-}
+};
