@@ -9,11 +9,11 @@ module.exports = {
             return;
         }
 
-        const msg = await messageObject.message.channel.send(`🏓 Pinging....`);
+        const msg = await messageObject.message.channel.send("🏓 Pinging....");
 
         const pingEmbed = new Discord.MessageEmbed()
             .setColor("RANDOM")
-            .setTitle(`🏓 Pong!`)
+            .setTitle("🏓 Pong!")
             .addField("Latency", `${Math.floor(msg.createdTimestamp - messageObject.message.createdTimestamp)}ms`);
 
         messageObject.message.channel.send(pingEmbed);

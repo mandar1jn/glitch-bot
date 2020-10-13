@@ -15,7 +15,7 @@ module.exports = {
         console.log("[DiscordAPIError]", err, "\n");
     },
     uncaughtException: (err) => {
-        console.error(`[uncaughtException] ${err.stack}`, '\n');
+        console.error("[uncaughtException] ${err.stack}", '\n');
         process.exit(1);
     },
     unhandledRejection: (err) => {

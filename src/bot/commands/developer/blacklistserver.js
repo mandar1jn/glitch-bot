@@ -16,7 +16,7 @@ module.exports = {
 
         blacklistedservers[messageObject.args[0]] = true;
 
-        fs.writeFile(path.resolve(`src/bot/databases/blacklistedservers.json`), JSON.stringify(blacklistedservers));
+        fs.writeFile(path.resolve("src/bot/databases/blacklistedservers.json"), JSON.stringify(blacklistedservers));
         
         return messageObject.message.channel.send("I have blacklisted the server");
     }

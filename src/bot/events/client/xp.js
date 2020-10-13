@@ -24,7 +24,7 @@ module.exports = async (client, message) => {
     if (!blacklistedservers[message.guild.id]) {
         blacklistedservers[message.guild.id] = false;
         fs.writeFile(
-            path.resolve(`src/bot/databases/blacklistedservers.json`),
+            path.resolve("src/bot/databases/blacklistedservers.json"),
             JSON.stringify(blacklistedservers), function(err) {
                 if (err) console.log("error", err);
             });

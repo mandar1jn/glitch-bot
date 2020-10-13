@@ -1,6 +1,6 @@
 module.exports = {
     name: "site",
-    description: 'Sends a link to our official website',
+    description: "Sends a link to our official website",
     category: "general",
     run: async (client, messageObject) => {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){

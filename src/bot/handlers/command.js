@@ -20,7 +20,7 @@ module.exports.registerCommands = (client) => {
                 client.commands.set(pull.name, pull);
                 table.addRow(file, "✅", pull.category);
             } else {
-                table.addRow(file, `❌  -> missing a help.name, or help.name is not a string.`, pull.category);
+                table.addRow(file, "❌  -> missing a help.name, or help.name is not a string.", pull.category);
                 continue;
             }
 

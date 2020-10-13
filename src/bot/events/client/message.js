@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const blacklistedservers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/blacklistedservers.json")));
 const developers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/developers.json")));
-const utils = require(path.resolve(`src/utils.js`));
+const utils = require(path.resolve("src/utils.js"));
 
 
 module.exports = async (client, message) => {

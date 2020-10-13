@@ -1,5 +1,5 @@
-const request = require('request');
-const cheerio = require('cheerio');
+const request = require("request");
+const cheerio = require("cheerio");
 
 function searchImage(message, image) {
 
@@ -39,7 +39,7 @@ module.exports = {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        var image = messageObject.args.join(' ');
+        var image = messageObject.args.join(" ");
 
         searchImage(messageObject.message, image);
     }
