@@ -30,7 +30,9 @@ module.exports = async (client, message) => {
         fs.writeFile(
             path.resolve("src/bot/databases/blacklistedservers.json"),
             JSON.stringify(blacklistedservers), function(err) {
-                if (err) console.log("error", err);
+                if (err) {
+                    console.log("error", err);
+                }
             });
     }
 

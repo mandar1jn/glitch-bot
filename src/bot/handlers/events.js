@@ -23,7 +23,7 @@ module.exports.registerEvents = async (client, dbl) => {
 			if (!file.endsWith(".js")) {
                 return;
             }
-            
+
 			const event = require(path.resolve(
 				`src/bot/events/process/${file}`
 			));
@@ -37,7 +37,9 @@ module.exports.registerEvents = async (client, dbl) => {
 
 	fs.readdir(path.resolve("src/bot/events/dbl/"), (err, files) => {
 		files.forEach((file) => {
-			if (!file.endsWith(".js")) return;
+			if (!file.endsWith(".js")) {
+                return;
+            }
 			const event = require(path.resolve(`src/bot/events/dbl/${file}`));
 			let eventName = file.split(".")[0];
 			dbl.on(eventName, event.bind(null, dbl));
@@ -49,7 +51,9 @@ module.exports.registerEvents = async (client, dbl) => {
 
 	fs.readdir(path.resolve("src/bot/events/dbl-webhook/"), (err, files) => {
 		files.forEach((file) => {
-			if (!file.endsWith(".js")) return;
+			if (!file.endsWith(".js")) {
+                return;
+            }
 			const event = require(path.resolve(
 				`src/bot/events/dbl-webhook/${file}`
 			));
@@ -67,7 +71,9 @@ module.exports.registerEvents = async (client, dbl) => {
 module.exports.registerManagerEvents = async (manager) => {
 	fs.readdir(path.resolve("src/bot/events/manager/"), (err, files) => {
 		files.forEach((file) => {
-			if (!file.endsWith(".js")) return;
+			if (!file.endsWith(".js")) {
+                return;
+            }
 			const event = require(path.resolve(
 				`src/bot/events/manager/${file}`
 			));
