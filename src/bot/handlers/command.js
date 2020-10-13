@@ -1,9 +1,9 @@
 const { readdirSync } = require("fs");
 const path = require("path");
 
-const ascii = require("ascii-table");
+const Ascii = require("ascii-table");
 
-let table = new ascii("commands");
+let table = new Ascii("Commands");
 table.setHeading("Command", "Load status", "Category");
 const { Collection } = require("discord.js");
 
