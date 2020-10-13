@@ -17,8 +17,8 @@ module.exports = async (client) => {
             statusnumber = 2;
         }
         else if (statusnumber === 2){
-            client.user.setActivity(`running on shard ${shardid} of the ${client.shard.count}`, {type: `PLAYING`});
+            client.user.setActivity(`running on shard ${shardid} of the ${client.shard.count}`, {type: "PLAYING"});
             statusnumber = 0;
         }
     }, 60000);
-}
+};

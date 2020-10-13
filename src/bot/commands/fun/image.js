@@ -1,22 +1,7 @@
 const request = require('request');
 const cheerio = require('cheerio');
 
-module.exports = {
-    name: "image",
-    description: "shows the image that you searched for",
-    category: "fun",
-    run: async (client, messageObject) => {
-        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
-            return;
-        }
-        var image = messageObject.args.join(' ');
-
-        imageSearch(messageObject.message, image)
-    }
-};
-
-
-function imageSearch(message, image) {
+function searchImage(message, image) {
 
     var options = {
         url: "http://results.dogpile.com/serp?qc=images&q=" + image,
@@ -45,3 +30,17 @@ function imageSearch(message, image) {
         message.channel.send(urls[Math.floor(Math.random() * urls.length)]);
     });
 }
+
+module.exports = {
+    name: "image",
+    description: "shows the image that you searched for",
+    category: "fun",
+    run: async (client, messageObject) => {
+        if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
+            return;
+        }
+        var image = messageObject.args.join(' ');
+
+        searchImage(messageObject.message, image);
+    }
+};
