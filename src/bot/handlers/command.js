@@ -3,7 +3,7 @@ const path = require("path");
 
 const ascii = require("ascii-table");
 
-let table = new ascii("Commands");
+let table = new ascii("commands");
 table.setHeading("Command", "Load status", "Category");
 const { Collection } = require("discord.js");
 
