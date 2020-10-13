@@ -33,6 +33,6 @@ module.exports.registerEvents = async (client, dbl) => {
 
 module.exports.registerManagerEvents = async (manager) => {
 
-    registerEvents(manager, "src/bot/events/manager/")
+    registerEvents(manager, "src/bot/events/manager/");
 
 };
