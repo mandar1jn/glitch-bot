@@ -1,6 +1,6 @@
 const path = require("path");
-const developers = require(path.resolve("src/bot/databases/developers.json"));
-const blacklistedservers = require(path.resolve("src/bot/databases/blacklistedservers.json"));
+const developers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/developers.json")));
+const blacklistedservers = JSON.parse(fs.readFileSync(path.resolve("src/bot/databases/blacklistedservers.json")));
 const fs = require("fs");
 
 module.exports = {

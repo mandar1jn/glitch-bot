@@ -50,4 +50,4 @@ module.exports = async (client, message) => {
     }
 
     return client.emit("command", message, guild_info);
-}
+};

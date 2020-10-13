@@ -21,4 +21,4 @@ module.exports = {
 
         return messageObject.message.channel.send(serverembed);
     }
-}
+};

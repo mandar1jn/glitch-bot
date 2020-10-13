@@ -12,9 +12,13 @@ module.exports = {
 
         const guild_info = require(path.resolve(`src/bot/databases/guild info/${messageObject.message.guild.id}.json`));
 
-        if (!messageObject.message.member.hasPermission("MANAGE_GUILD")) return messageObject.message.channel.send("Sorry, but you don't have the permission to do that")
+        if (!messageObject.message.member.hasPermission("MANAGE_GUILD")) {
+            return messageObject.message.channel.send("Sorry, but you don't have the permission to do that");
+        }
 
-        if (!messageObject.args[0]) return messageObject.message.channel.send("Please also specifie a prefix");
+        if (!messageObject.args[0]) {
+            return messageObject.message.channel.send("Please also specifie a prefix");
+        }
 
         guild_info.prefix = messageObject.args[0];
 
