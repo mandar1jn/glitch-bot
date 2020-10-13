@@ -10,13 +10,17 @@ module.exports = {
             return;
         }
 
-        if(!messageObject.message.channel.nsfw) return messageObject.message.channel.send("You have to use this command in an nsfw channel")
+        if(!messageObject.message.channel.nsfw) {
+            return messageObject.message.channel.send("You have to use this command in an nsfw channel");
+        }
 
         const subReddits = ["meme", "me_irl", "crappydesign", "technicallythetruth", "ComedyCemetery", "dankmemes", "PrequelMemes", "terriblefacebookmemes", "PewdiepieSubmissions", "funny"];
         const random = subReddits[Math.floor(Math.random() * subReddits.length)];
 
         const img = await randomPuppy(random); 
-        if(!img) return messageObject.message.channel.send("Sorry, but the meme that was picked didn't have an image. Please try again")
+        if(!img) {
+            return messageObject.message.channel.send("Sorry, but the meme that was picked didn't have an image. Please try again");
+        }
         const embed = new MessageEmbed()
             .setColor("RANDOM")
             .setImage(img)
