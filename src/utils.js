@@ -13,7 +13,7 @@ module.exports.validateDataFolders = async () => {
                 if (e) {
                     console.log("something went wrong while creating a directory: " + e);
                 }
-            })
+            });
         }
         console.log("guild info has been validated.");
 
@@ -36,7 +36,7 @@ module.exports.validateDataFolders = async () => {
             })
         }
         console.log("coins has been validated.");
-}
+};
 
 module.exports.validateGuildData = async (guildID, guild_info) => {
     if (fs.existsSync(path.resolve(`src/bot/databases/guild info/${guildID}.json`)) != true) {

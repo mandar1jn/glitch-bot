@@ -4,7 +4,7 @@ const fs = require("fs");
 const defaultCoins = {
     coins: 0,
     volgende_munt: 5
-}
+};
 
 module.exports = {
     name: "coins",

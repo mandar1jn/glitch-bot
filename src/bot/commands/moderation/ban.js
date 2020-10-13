@@ -27,4 +27,4 @@ module.exports = {
             messageObject.message.channel.send(new Discord.MessageEmbed().setColor("AA0000").setDescription(`${messageObject.message.mentions.members.first().user.tag} can not be banned`).setFooter(`By: ${messageObject.message.author.tag}`));
         }
     }
-}
+};

@@ -14,10 +14,10 @@ module.exports = {
         const pingEmbed = new Discord.MessageEmbed()
             .setColor("RANDOM")
             .setTitle(`🏓 Pong!`)
-            .addField("Latency", `${Math.floor(msg.createdTimestamp - messageObject.message.createdTimestamp)}ms`)
+            .addField("Latency", `${Math.floor(msg.createdTimestamp - messageObject.message.createdTimestamp)}ms`);
 
         messageObject.message.channel.send(pingEmbed);
 
         return msg.delete();
     }
-}
+};

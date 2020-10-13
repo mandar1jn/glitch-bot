@@ -52,12 +52,12 @@ router.get("/discord/", (req, res) => {
 });
 
 router.get("/stats/", (req, res) => {
-    res.render(__dirname + "/views/stats.handlebars", { layout: false })
+    res.render(__dirname + "/views/stats.handlebars", { layout: false });
 });
 
 
 router.get("/dashboard/login/", (req, res) => {
-    res.redirect(process.env.OAUTH_URL)
+    res.redirect(process.env.OAUTH_URL);
 });
 
 router.get("/dashboard/callback", (req, res) => {
@@ -65,18 +65,18 @@ router.get("/dashboard/callback", (req, res) => {
     data.append("client_secret", process.env.CLIENT_SECRET);
     data.append("grant_type", "authorization_code");
     data.append("scope", "identify guilds");
-    data.append("redirect_uri", process.env.REDIRECT_URL)
+    data.append("redirect_uri", process.env.REDIRECT_URL);
     data.append("code", req.query.code);
 
     fetch("https://discordapp.com/api/oauth2/token", {
         method: "POST",
         body: data,
     }).then((res) => res.json()).then((data) => {
-        req.session.loggedin = true
+        req.session.loggedin = true;
         let auth = data;
-        req.session.token = auth["access_token"]
+        req.session.token = auth["access_token"];
 
-        res.redirect("/dashboard")
+        res.redirect("/dashboard");
     });
 });
 

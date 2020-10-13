@@ -6,6 +6,6 @@ module.exports = {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        return messageObject.message.channel.send("Hello!")
+        return messageObject.message.channel.send("Hello!");
     }
-}
+};

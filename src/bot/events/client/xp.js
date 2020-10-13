@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 const fs = require("fs");
 const blacklistedservers = require(path.resolve("src/bot/databases/blacklistedservers.json"));
 const Discord = require("discord.js");

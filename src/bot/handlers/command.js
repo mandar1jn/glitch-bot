@@ -27,4 +27,4 @@ module.exports.registerCommands = (client) => {
             if (pull.aliases && Array.isArray(pull.aliases)) pull.aliases.forEach((alias) => client.aliases.set(alias, pull.name));
         }
     });
-}
+};
