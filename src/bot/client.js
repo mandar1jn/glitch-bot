@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require("path");
 const Discord = require("discord.js");
 const client = new Discord.Client({
     shards: "auto",

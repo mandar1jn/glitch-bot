@@ -6,6 +6,6 @@ module.exports = {
         if(!messageObject.message.guild.me.hasPermission("SEND_MESSAGES")){
             return;
         }
-        messageObject.message.channel.send("Do you want to report a bug? Or just hangout with the glitch bot community? Then join https://discord.gg/SadnQPb")
+        messageObject.message.channel.send("Do you want to report a bug? Or just hangout with the glitch bot community? Then join https://discord.gg/SadnQPb");
     }
-}
+};

@@ -31,4 +31,4 @@ module.exports = {
         return messageObject.message.channel.send(`I have changed the prefix to \`\`${messageObject.args[0]}\`\``);
 
     }
-}
+};

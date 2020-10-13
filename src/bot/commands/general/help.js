@@ -14,7 +14,7 @@ module.exports = {
         var commandList = [];
 
         if (!messageObject.args[0]) {
-            return messageObject.message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`)
+            return messageObject.message.channel.send(`Use **${guild_info.prefix}help <1|2|3|4>**`);
         }
 
         client.commands.forEach((command) => {
