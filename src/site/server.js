@@ -1,7 +1,9 @@
 const express = require("express");
 const path = require("path");
 const fetch = require("node-fetch");
+const helmet = require("helmet");
 const app = express();
+app.use(helmet.hidePoweredBy());
 const exphbs = require("express-handlebars");
 const router = new express.Router();
 const session = require("express-session");
@@ -9,6 +11,7 @@ const FormData = require("form-data");
 
 const data = new FormData();
 var response = null;
+
 
 async function getUser(token) {
     let response = await fetch("https://discordapp.com/api/users/@me", {
