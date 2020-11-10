@@ -89,9 +89,9 @@ module.exports.validateGuildData = async (guildID, guild_info) => {
 	);
 };
 
-async function validateDataFolder(path) {
-	if (!fs.existsSync(path)) {
-		fs.mkdirSync(path, true, function(e) {
+async function validateDataFolder(folderPath) {
+	if (!fs.existsSync(folderPath)) {
+		fs.mkdirSync(folderPath, true, function(e) {
 			if (e) {
 				console.log('something went wrong while creating a directory: ' + e);
 			}
