@@ -3,7 +3,7 @@ const path = require("path");
 const fetch = require("node-fetch");
 const helmet = require("helmet");
 const app = express();
-app.use(helmet.hidePoweredBy());
+app.use(helmet());
 const exphbs = require("express-handlebars");
 const router = new express.Router();
 const session = require("express-session");
