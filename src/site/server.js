@@ -1,9 +1,8 @@
 const express = require("express");
 const path = require("path");
 const fetch = require("node-fetch");
-const helmet = require("helmet");
 const app = express();
-app.use(helmet());
+app.use(require("helmet")());
 const exphbs = require("express-handlebars");
 const router = new express.Router();
 const session = require("express-session");
@@ -27,13 +26,6 @@ async function getUser(token) {
 
 
 app.use(express.static(__dirname + "/public"));
-
-var RateLimit = require("express-rate-limit");
-var limiter = new RateLimit({
-  windowMs: 1*60*1000, // 1 minute
-  max: 5
-});
-app.use(limiter);
 
 app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
