@@ -9,15 +9,13 @@ const session = require("express-session");
 const FormData = require("form-data");
 
 const data = new FormData();
-var response = null;
-
 
 async function getUser(token) {
     let response = await fetch("https://discordapp.com/api/users/@me", {
         method: "GET",
         headers: {"Authorization": `Bearer ${token}` }
     });
-    let data = await response.json();
+    data = await response.json();
     setTimeout(3000);
     //verwijder data; als je er iets mee gaat doen
     console.log(data);
@@ -73,12 +71,12 @@ router.get("/dashboard/callback", (req, res) => {
     fetch("https://discordapp.com/api/oauth2/token", {
         method: "POST",
         body: data,
-    }).then((res) => res.json()).then((data) => {
+    }).then((loginRes) => res.json()).then((loginData) => {
         req.session.loggedin = true;
-        let auth = data;
+        let auth = loginData;
         req.session.token = auth["access_token"];
 
-        res.redirect("/dashboard");
+        loginRes.redirect("/dashboard");
     });
 });
 

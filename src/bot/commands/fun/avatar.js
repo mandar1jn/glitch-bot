@@ -9,13 +9,13 @@ module.exports = {
 			return;
 		}
 		if (!messageObject.message.mentions.members.first()) {
-			const avatarEmbed = new Discord.MessageEmbed()
+			const avatarEmbedSelf = new Discord.MessageEmbed()
 				.setTitle("Avatar of: " + messageObject.message.author.tag)
 				.setColor("ffd000")
 				.setImage(
 					messageObject.message.author.displayAvatarURL({ dynamic: true, format: "png" })
 				);
-			return messageObject.message.channel.send(avatarEmbed);
+			return messageObject.message.channel.send(avatarEmbedSelf);
 		}
 		let mentionedUser = messageObject.message.mentions.members.first().user;
 		const avatarEmbed = new Discord.MessageEmbed()
