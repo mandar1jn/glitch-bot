@@ -6,5 +6,16 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/mandar1jn/glitch-bot/badge.svg)](https://snyk.io/test/github/mandar1jn/glitch-bot)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/9e1f6cc5b7da473f95eeb6089ce17022)](https://www.codacy.com/manual/marijnkneppers/glitch-bot?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=mandar1jn/glitch-bot&amp;utm_campaign=Badge_Grade)
 [![BCH compliance](https://bettercodehub.com/edge/badge/mandar1jn/glitch-bot?branch=master)](https://bettercodehub.com/)
+**sonarcloud**
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=bugs)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=code_smells)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=ncloc)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=alert_status)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=security_rating)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=sqale_index)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=mandar1jn_glitch-bot&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=mandar1jn_glitch-bot)
 # glitch-bot
 this is a bot
