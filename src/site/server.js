@@ -98,5 +98,6 @@ router.get("/dashboard/", (req, res) => {
 });
 
 app.use("/", router);
+app.listen(2020);
 
 module.exports = app;
