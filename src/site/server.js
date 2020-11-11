@@ -8,7 +8,7 @@ const router = new express.Router();
 const session = require("express-session");
 const FormData = require("form-data");
 
-const data = new FormData();
+let data = new FormData();
 
 async function getUser(token) {
     let response = await fetch("https://discordapp.com/api/users/@me", {
