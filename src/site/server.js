@@ -83,7 +83,7 @@ router.get("/dashboard/callback", (req, res) => {
 router.get("/dashboard/", (req, res) => {
     if (req.session.loggedin) {
 
-        response = getUser(req.session.token);
+        let response = getUser(req.session.token);
         //verwijder response; als je er iets mee gaat doen
         console.log(response);
         res.sendFile(path.join(__dirname + "/routes/dashboard.html"));
