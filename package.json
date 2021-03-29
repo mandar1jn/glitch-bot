@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/mandar1jn/glitch-bot#readme",
   "devDependencies": {
-    "eslint": "^7.19.0"
+    "eslint": "^7.23.0"
   },
   "dependencies": {
     "ascii-table": "0.0.9",
